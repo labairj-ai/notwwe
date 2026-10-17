@@ -12,7 +12,7 @@ Date: 2026-10-17. Branch: `codex/build-notwwe-backlog`. Exact commit identity is
 
 CUA inventory registered no browsers; requesting Chrome returned “Browser is not available”. No WebGL visual smoke or physical device testing was performed. Human audible-output, choreography/contact/readability, comfort, originality and gameplay/balance review remain open. This blocks certified production activation.
 
-Public URL https://optiplex.tailb97cdb.ts.net/notwwe/ retains its existing planning landing page. This change does not claim a public playable release. Activation, key-asset MIME/hash verification at that path, previous-release retention and production human smoke must be recorded against an accepted exact SHA before TODO 0040 can be complete.
+The candidate was subsequently deployed at the user’s explicit request; see activation evidence below. Human/device certification and production human smoke remain open, so TODO 0040 is not marked complete.
 
 ## Candidate evidence
 
@@ -22,3 +22,17 @@ Public URL https://optiplex.tailb97cdb.ts.net/notwwe/ retains its existing plann
 - GitHub PR: https://github.com/labairj-ai/notwwe/pull/2
 - CI: https://github.com/labairj-ai/notwwe/actions/runs/39062169922 — success (Node 22 install, 27 tests, source checks, 36 replay scenarios and complete build).
 - These are implementation/build results, not desktop visual, physical device or certified production deployment evidence.
+
+## OptiPlex activation — explicit user request
+
+- User instruction: “deploy to optiplex.” This authorizes activation of the uncertified candidate while retaining truthful pending acceptance; it does not certify human/device checks.
+- Source SHA: `bbf16e91dbded33f52410b2b0df6045e866badd8`; clean build; all package hashes verified after transfer.
+- Activated: 2026-10-17T19:25:52.886244Z.
+- URL: https://optiplex.tailb97cdb.ts.net/notwwe/
+- New target: `/var/www/notwwe/releases/bbf16e91dbded33f52410b2b0df6045e866badd8` through `current`.
+- Previous target: `/var/www/notwwe/site` through `previous`; original landing page retained untouched.
+- Nginx configuration test and reload succeeded; only the isolated NotWWE root changed. Tailscale/Funnel configuration untouched.
+- Public verifier passed HTTP status, HTML/SVG/JS/CSS/JSON MIME, expected clean source SHA, and key asset SHA-256 hashes.
+- Existing root and `/notsims/` returned HTTP 200 after activation.
+- No browser visual, physical-device, audible-output or subjective gameplay certification claimed. `build-info.json` remains `certified: false`.
+- Rollback procedure and pointers: `deploy/HOSTING.md`.
