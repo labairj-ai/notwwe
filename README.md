@@ -14,7 +14,7 @@ The player chooses a fictional wrestler, works a weekly schedule, cuts promos, d
 
 Requires Node 22 or newer. Run `npm ci`, then `npm run dev` and open http://127.0.0.1:5193. `npm run build` creates a complete static `dist/` package with Three.js included. No backend, accounts, model service or external asset host is needed.
 
-The implementation includes 12 selectable wrestlers, singles/championship/No-DQ matches, procedural 3D characters and arena, touch/keyboard controls, a weekly career with training, promos, rivalries, rankings, title history, contracts, and save import/export. Display title: **Harbor Circuit**, subject to originality review.
+The implementation includes 12 selectable wrestlers, singles/championship/No-DQ matches, rigged humanoid 3D characters, an original arena, stable touch/keyboard/gamepad controls, a weekly career with training, promos, rivalries, rankings, title history, contracts, and save import/export. Display title: **Harbor Circuit**, subject to originality review.
 
 See [implementation evidence](docs/reviews/implementation-validation.md) for automated results and remaining acceptance. The original first-playable human gate remains open; the user explicitly requested the whole software backlog, so career code is available for review before certification.
 
@@ -112,7 +112,7 @@ The detailed backlog is in `.todos/`. The high-level phases are:
 | Career | 0022–0032 | roster, career, rivalries, booking, titles, calendar, saves |
 | Quality/release | 0033–0040 | replay, audio, camera, match expansion, acceptance and deployment |
 
-**Next backlog:** [0041–0048](.todos/README.md#phase-6--character-fidelity-and-mobile-control-redesign) improve rigged character fidelity, skeletal contact animation, stable touch controls, buffered input and match pacing, then require human acceptance. Further career/match-type expansion waits for 0048.
+**Current milestone:** [0041–0048](.todos/README.md#phase-6--character-fidelity-and-mobile-control-redesign) adds rigged humanoids, shared skeletal clips, paired contact choreography, stable two-thumb controls, buffered input and revised match pacing. Software 0041–0047 is implemented; 0048 human/device acceptance remains open. See [validation](docs/reviews/character-controls-validation.md). Further career/match-type expansion waits for 0048.
 
 **Original recommended first batch:** 0001–0006.
 **First-playable gate:** 0001–0021.  

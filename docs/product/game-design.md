@@ -50,3 +50,9 @@ A loss in a great match can improve reputation. A dull win can stall momentum. R
 ## Design restraint
 
 The first goal is one excellent singles match. Career breadth, match-type breadth, large rosters and spectacular environmental physics must not hide a weak wrestling foundation.
+
+## 0.2 pacing candidate
+
+Match timing is data-driven in `src/content/timing.js`. AI decision intervals are easy 2.2s / normal 1.5s / hard 1.0s; attack telegraphs span 0.4–0.8s by family. Grapple selection lasts up to 6s, get-up 1.4s, and knockdowns reserve at least 2.5s after the attacker's move recovery for a readable cover opportunity. Pins protect the recovering defender from immediate repeated covers for 2.5s after a break. Hard AI conserves stamina rather than spending all low stamina on repeated readiness. Difficulty remains challenge tuning, not a different rules/clock path.
+
+The target rhythm is setup → action → selling → decision → next exchange. Current automated samples and before/after values are in the character/control validation record. None of these values has passed human play acceptance; they are candidates for 0048 rather than asserted final balance.

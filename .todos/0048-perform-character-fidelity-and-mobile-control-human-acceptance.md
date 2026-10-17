@@ -1,7 +1,7 @@
 # 0048 — Perform Character Fidelity and Mobile Control Human Acceptance
 
 - **ID:** 0048
-- **Status:** proposed
+- **Status:** blocked
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0041, 0042, 0043, 0044, 0045, 0046, 0047
@@ -99,6 +99,10 @@ Record orientation and exact device/browser.
 - [ ] Pin/reversal/grapple flow observed.
 - [ ] Device thermal/performance observations recorded.
 - [ ] Full automated regression suite remains green.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. This task requires actual desktop, physical iPhone and physical Android testers. CUA has no registered browser and Chrome returns `cgWindowNotFound`; no human/device pass is claimed.
 
 ## Completion evidence
 

@@ -1,7 +1,7 @@
 # 0046 — Build Mobile-First Two-Thumb Wrestling Layout and Control Customization Foundation
 
 - **ID:** 0046
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0044, 0045
@@ -136,6 +136,10 @@ The architecture must not hardcode physical positions throughout UI logic.
 - [ ] One-handed accidental behavior documented even though two-handed play is the primary target.
 - [ ] Thermal/frame observations.
 - [ ] Full test/build/check/CI passes.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. Software exists and local automated gates pass. Required browser/physical-device/human criteria remain open; this is not a `complete` status.
 
 ## Completion evidence
 

@@ -1,7 +1,7 @@
 # 0043 — Build Paired Skeletal Wrestling Choreography and Contact Alignment
 
 - **ID:** 0043
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0041, 0042, 0007, 0008, 0009, 0010, 0011, 0012, 0013, 0014
@@ -117,6 +117,10 @@ Do not attempt to animate the full future moveset under this TODO.
 - [ ] Confirm deterministic replay equality.
 - [ ] Measure desktop/mobile animation performance.
 - [ ] Full test/build/check/CI passes.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. Software exists and local automated gates pass. Required browser/physical-device/human criteria remain open; this is not a `complete` status.
 
 ## Completion evidence
 

@@ -1,7 +1,7 @@
 # 0045 — Add Deterministic Buffered Player Intent
 
 - **ID:** 0045
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0044, 0004, 0033
@@ -114,6 +114,10 @@ Expired intents disappear without side effects.
 - [ ] Pause while intent pending.
 - [ ] Replay equivalence.
 - [ ] Full test/build/check/CI passes.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. Software exists and local automated gates pass. Required browser/physical-device/human criteria remain open; this is not a `complete` status.
 
 ## Completion evidence
 

@@ -1,7 +1,7 @@
 # 0041 — Replace Procedural Wrestlers With Rigged Humanoid Character Pipeline
 
 - **ID:** 0041
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0018, 0019
@@ -115,6 +115,10 @@ All archetypes should remain compatible with the same animation vocabulary where
 - [ ] Test desktop and representative mobile viewport rendering.
 - [ ] Run full test/build/check/CI suite.
 - [ ] Confirm replay results are identical with presentation enabled and disabled.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. Software exists and local automated gates pass. Required browser/physical-device/human criteria remain open; this is not a `complete` status.
 
 ## Completion evidence
 

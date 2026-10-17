@@ -45,3 +45,16 @@ Record actual device/browser and observations for:
 ## Decision
 
 Do not mark this record passed from emulation or CI alone. Document blockers and follow-up TODOs if the match is technically correct but not yet fun/readable.
+
+
+## 0.2 character/control acceptance — not yet performed
+
+Candidate evidence: [character/control validation](character-controls-validation.md). Full required questions remain in TODO 0048; none is answered as a human pass by the automated suite or offline renders.
+
+| Required session | Actual device/browser | Orientation | Human tester | Result |
+| --- | --- | --- | --- | --- |
+| Desktop character/control review | unavailable in this session | pending | pending | Not performed |
+| Physical iPhone | pending actual device | portrait career + landscape match | pending | Not performed |
+| Physical Android | pending actual device | portrait career + landscape match | pending | Not performed |
+
+For each real session record exact deployed SHA, device/browser, fresh/returning player status, several full matches, archetype pairings, easy/normal/hard, signature/finisher/pin/reversal/grapple observations, input rejection/accidental-touch frequency, readability/contact/clipping findings, thermal/frame observations, and a pass/fail answer to every 0048 question. Final recommendation remains **iterate / acceptance pending** until that evidence exists. Failed findings must stay actionable/open; green CI never closes this gate.

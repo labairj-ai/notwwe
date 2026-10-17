@@ -87,3 +87,9 @@ Validation: every entry below exists in this package; TODO Markdown references w
 - `docs/reviews/release-validation.md`
 - `tests/README.md`
 - `MARKDOWN-MANIFEST.md`
+
+
+## 0.2 implementation review additions
+
+- `docs/reviews/character-controls-validation.md`
+- `assets/README.md` (updated rigged asset provenance)

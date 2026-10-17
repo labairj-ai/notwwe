@@ -1,0 +1,17 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {STATE_CLIPS} from '../src/presentation/clips.js';
+import {CHOREOGRAPHY} from '../src/presentation/choreography.js';
+export function decodeGLB(bytes){if(bytes.readUInt32LE(0)!==0x46546c67||bytes.readUInt32LE(4)!==2||bytes.readUInt32LE(8)!==bytes.length)throw Error('Invalid GLB');const length=bytes.readUInt32LE(12);return JSON.parse(bytes.subarray(20,20+length).toString());}
+export async function checkWrestlers({verifyManifest=true}={}){
+ const metadata=JSON.parse(await readFile('assets/wrestlers/metadata.json','utf8')),report=[];let total=0;let requiredBones=null;const library=decodeGLB(await readFile('assets/wrestlers/athletic.glb')),clips=new Set(library.animations.map(a=>a.name));
+ for(const name of new Set([...Object.values(STATE_CLIPS),'KnockdownFront','KnockdownBack','GetUpFront','Defeat',...Object.values(CHOREOGRAPHY).flatMap(p=>[p.actorClip,p.receiverClip]),'CounterActor','CounterReceiver']))if(!clips.has(name))throw Error(`Missing required clip ${name}`);
+ if(new Set(metadata.clips.map(c=>c.name)).size!==clips.size||metadata.clips.some(c=>!clips.has(c.name)))throw Error('Clip metadata mismatch');
+ for(const model of metadata.models){const bytes=await readFile(`assets/wrestlers/${model.file}`),j=decodeGLB(bytes);total+=bytes.length;if(bytes.length>8_000_000||bytes.length!==model.bytes)throw Error('Model exceeds budget or stale metadata');const names=j.skins[0].joints.map(i=>j.nodes[i].name).sort();if(names.length!==53||requiredBones&&JSON.stringify(names)!==JSON.stringify(requiredBones))throw Error('Incompatible skeleton');requiredBones=names;
+  const triangles=j.meshes.reduce((sum,m)=>sum+m.primitives.reduce((n,p)=>n+j.accessors[p.indices??p.attributes.POSITION].count/3,0),0);if(triangles>60000)throw Error('Triangle budget exceeded');if(j.images.some(i=>i.uri))throw Error('External image dependency');
+  const imageDimensions=j.images.map(image=>{const view=j.bufferViews[image.bufferView],start=28+bytes.readUInt32LE(12)+(view.byteOffset??0),png=bytes.subarray(start,start+view.byteLength);if(image.mimeType!=='image/png'||png.readUInt32BE(0)!==0x89504e47)throw Error('Unexpected image encoding');const width=png.readUInt32BE(16),height=png.readUInt32BE(20);if(width>1024||height>1024)throw Error('Texture dimension budget exceeded');return {width,height};});
+  report.push({id:model.id,decodedTextureBytes:imageDimensions.reduce((n,i)=>n+i.width*i.height*4,0),imageDimensions,bytes:bytes.length,triangles,bones:names.length,images:j.images.length,sha256:createHash('sha256').update(bytes).digest('hex')});
+ }
+ if(total>20_000_000)throw Error('Total wrestler download budget exceeded');if(verifyManifest){const recorded=JSON.parse(await readFile('assets/wrestlers/asset-manifest.json','utf8'));if(recorded.exporterSha256!==createHash('sha256').update(await readFile('scripts/export-wrestlers.py')).digest('hex')||JSON.stringify(recorded.models)!==JSON.stringify(report))throw Error('Asset/source provenance manifest differs');}return {models:report,totalBytes:total,clips:clips.size};
+}
+if(process.argv[1]?.endsWith('check-wrestlers.mjs')){const write=process.argv.includes('--write-manifest'),report=await checkWrestlers({verifyManifest:!write});if(write)await writeFile('assets/wrestlers/asset-manifest.json',JSON.stringify({...report,exporterSha256:createHash('sha256').update(await readFile('scripts/export-wrestlers.py')).digest('hex'),sourceLicense:'CC0-1.0'},null,2)+'\n');console.log(JSON.stringify(report,null,2));}

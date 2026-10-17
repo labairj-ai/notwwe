@@ -32,3 +32,11 @@ Future-version saves fail safely. Unknown IDs referenced by required authoritati
 ## Testing
 
 Every production schema bump requires a frozen real prior-version fixture, migration-chain tests, future-version rejection, input immutability, invalid migrated-data rejection and load/save idempotence checks.
+
+## Save version 2 (0.2 candidate)
+
+Pure migration 1→2 preserves career, damage/resources, match position, RNG and elapsed ticks, adding schemaVersion 2, empty pending intent/attack collections, bounded control statistics, zero movement vectors, movement magnitude and pin recovery protection. Existing in-progress attacks in a v1 save are already resolved facts; migration does not replay damage. Subsequent combat follows the new timing profile. `tests/fixtures/save-v1.json` stays frozen; `save-v2.json` covers a pending intent.
+
+Version 2 persists abstract pending intents and prepared-attack deadlines so resume cannot duplicate a hit/cost. Validation rejects invalid directions, actors/actions/sources, duplicate attackers, unbounded/future deadlines, malformed statistics and terminal pending work. Hardware touch IDs, pressed keys, camera, mixer clocks, DOM and audio remain unsaved. The browser releases movement through a normal command on restore/focus/layout transitions; the pure domain loader itself remains deterministic.
+
+Browser writes use `notwwe.save.v2`, with read-only fallback import from `notwwe.save.v1`. The legacy key is retained, allowing a rollback to 0.1 to read the pre-upgrade snapshot. A new v2 save cannot be imported by 0.1; export backups before a rollback. Explicit import validates before replacing active state or stored data.

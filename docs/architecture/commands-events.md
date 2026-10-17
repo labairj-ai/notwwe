@@ -79,3 +79,13 @@ Events are ordered facts returned from simulation. Audio, animation and camera s
 ## Failure codes
 
 Use stable machine-readable codes such as `INVALID_STATE`, `OUT_OF_RANGE`, `INSUFFICIENT_STAMINA`, `INVALID_TARGET`, `MOVE_NOT_AVAILABLE`, `MATCH_ENDED`, `PIN_NOT_LEGAL`. Human copy belongs to UI/presentation.
+
+## 0.2 control intent and wind-up contract
+
+The stable abstract vocabulary is MOVE, STRIKE, GRAPPLE, ACTION, COUNTER, SPECIAL and PAUSE. `CONTROL_INTENT` carries `actorId`, action, normalized `{x,z}` direction and source (`touch`, `keyboard`, `gamepad`). It replaces the actor's single pending intent. Queue/expiry/execution events record what happened; no timeout decides legality. `MOVE_INTENT` is an authoritative normalized velocity request, not a saved pointer position. Zero releases movement. All adapters share this dispatch path.
+
+At 10 Hz, buffers last Strike/Grapple/Special 3 ticks, Action 4, Counter 2. Expiry is inclusive: the command can execute at `expiresAtTick`, and is removed on the following tick. The resolver chooses data-defined contextual commands, checks normal state/range/stamina/momentum/rules, and executes once on the first legal tick. AI raw commands do not receive this player buffer. Replaced/expired requests cannot spend resources or consume RNG; the tick/telemetry and normal resource recovery continue independently.
+
+Each tick advances movement/resources and pin/submission state, then resolves queued player intent, then prepared attacks, then the scheduled AI decisions. Tick ordering is deterministic. AI initiative alternates at decision boundaries, avoiding permanent first-participant priority. Terminal result clears pending intents/attacks.
+
+A legal attack spends stamina once and emits `ATTACK_TELEGRAPHED` with a simulation deadline. The attacker locks into ATTACKING. At that deadline, resolve range/target state and the saved RNG for reversal/hit, apply effects, and emit resolved move events. Cancellation/miss never refunds the wind-up cost or invents a hit. Skeletal choreography consumes only resolved events; the counter UI may display the earlier telegraph. Wind-up uses ticks, never animation completion. `src/content/timing.js` owns the current tuning profile.

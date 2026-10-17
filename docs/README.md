@@ -31,3 +31,5 @@
 - `reviews/current-capability-map.md` — initial capability map, updated as TODOs land.
 - `reviews/first-playable-acceptance.md` — evidence record for the first playable gate.
 - `reviews/release-validation.md` — deployment/release evidence template.
+
+- `reviews/character-controls-validation.md` — 0.2 rigged asset/control/timing evidence and open human acceptance.
