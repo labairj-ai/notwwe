@@ -1,0 +1,13 @@
+# Local machine files
+.DS_Store
+Thumbs.db
+*.log
+
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+
+# Editor-local configuration
+.idea/
+.vscode/
