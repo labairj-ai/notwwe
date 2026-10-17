@@ -1,0 +1,1 @@
+export function semanticPose(w,time){const walk=['WALKING','RUNNING'].includes(w.state),down=['KNOCKED_DOWN','PINNED','SUBMISSION_DEFENSE'].includes(w.state),sit=w.state==='PINNING'||w.state==='SUBMISSION_ATTACK';return {walk:walk?Math.sin(time*(w.state==='RUNNING'?12:7))*.6:0,down,sit,rise:w.state==='GETTING_UP',victory:w.state==='VICTORY',taunt:w.state==='TAUNTING'};}

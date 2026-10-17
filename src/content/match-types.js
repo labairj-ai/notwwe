@@ -1,0 +1,1 @@
+export const MATCH_TYPES=[{id:'singles',name:'Singles',pin:true,submission:true,ropeBreak:true,noDQ:false,timeLimit:600},{id:'championship',name:'Championship singles',pin:true,submission:true,ropeBreak:true,noDQ:false,timeLimit:900},{id:'no_dq',name:'No-DQ singles',pin:true,submission:true,ropeBreak:false,noDQ:true,timeLimit:900}];

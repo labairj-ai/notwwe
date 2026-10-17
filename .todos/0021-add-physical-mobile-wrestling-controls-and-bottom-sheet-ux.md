@@ -1,7 +1,7 @@
 # 0021 — Add physical-mobile wrestling controls and bottom-sheet UX
 
 - **ID:** 0021
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0020
@@ -55,6 +55,10 @@ Implement this capability inside the documented Not WWE architecture without wea
 - [ ] Relevant full-suite tests, build and source checks pass.
 - [ ] No new forbidden dependency direction or circular import is introduced.
 - [ ] Save/replay impact is reviewed and documented.
+
+## Implementation evidence (2026-10-17)
+
+See [implementation validation](../docs/reviews/implementation-validation.md) for code ownership, commands, test counts, replay evidence and limitations. Status is intentionally not `complete`: unchecked acceptance below has not been certified. Software is implemented; browser/device/subjective criteria remain open where specified. Shared career systems live in `src/systems/career/career.js` rather than separate empty wrappers.
 
 ## Completion evidence
 

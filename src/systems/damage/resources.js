@@ -1,0 +1,6 @@
+import {clamp,emit} from '../../core/math.js';import {transition} from '../state-machine/states.js';
+export const totalDamage=w=>Object.values(w.damage).reduce((a,b)=>a+b,0);
+export function spend(w,cost,events){w.stamina=clamp(w.stamina-cost);emit(events,'STAMINA_SPENT',{wrestlerId:w.id,amount:cost});}
+export function damage(w,move,power,events){for(const part of move.bodyTargets){const amount=move.damage*(.75+power/200)/move.bodyTargets.length;w.damage[part]=clamp(w.damage[part]+amount);emit(events,'DAMAGE_APPLIED',{wrestlerId:w.id,part,amount,damage:w.damage[part]});}}
+export function knockdown(m,w,events){const duration=2+totalDamage(w)/45+(100-w.ratings.resilience)/70;transition(w,'KNOCKED_DOWN',events,m.tick+Math.ceil(duration*10));emit(events,'WRESTLER_KNOCKED_DOWN',{wrestlerId:w.id,duration});}
+export function advanceResources(m,w,events){if(w.state==='VICTORY')return;const recovery=['STANDING','KNOCKED_DOWN','GETTING_UP'].includes(w.state)?.12+w.ratings.stamina/1000:.025;w.stamina=clamp(w.stamina+recovery);if(w.until&&m.tick>=w.until){if(w.state==='KNOCKED_DOWN'){transition(w,'GETTING_UP',events,m.tick+10);}else if(!['PINNING','PINNED','SUBMISSION_ATTACK','SUBMISSION_DEFENSE'].includes(w.state))transition(w,'STANDING',events);}}

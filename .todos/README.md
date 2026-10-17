@@ -1,6 +1,6 @@
 # Not WWE implementation backlog
 
-All initial tasks are **proposed**. Status may change only when the task's acceptance criteria and truthful completion evidence are satisfied.
+Software for 0001–0037 and release tooling for 0039 are **implemented**. 0038 (human/device acceptance) and 0040 (certified production activation) are **blocked** on real acceptance evidence. No task is declared fully complete from automated checks alone. See [implementation evidence](../docs/reviews/implementation-validation.md).
 
 ## Recommended execution
 

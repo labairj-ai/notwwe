@@ -1,7 +1,7 @@
 # 0038 — Perform first complete desktop/mobile gameplay acceptance
 
 - **ID:** 0038
-- **Status:** proposed
+- **Status:** blocked
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0021, 0033, 0034, 0035, 0036
@@ -51,6 +51,10 @@ Implement this capability inside the documented Not WWE architecture without wea
 - [ ] Relevant full-suite tests, build and source checks pass.
 - [ ] No new forbidden dependency direction or circular import is introduced.
 - [ ] Save/replay impact is reviewed and documented.
+
+## Implementation evidence (2026-10-17)
+
+See [implementation validation](../docs/reviews/implementation-validation.md) for code ownership, commands, test counts, replay evidence and limitations. Status is intentionally not `complete`: unchecked acceptance below has not been certified. Human desktop, physical iOS/Android, audible-output, originality and gameplay acceptance are unavailable in this session. Certified production activation is gated on those results.
 
 ## Completion evidence
 
