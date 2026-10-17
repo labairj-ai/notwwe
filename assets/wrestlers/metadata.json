@@ -1,0 +1,217 @@
+{
+  "generator": "Blender 4.5.4 / MPFB 2.0.18",
+  "fps": 24,
+  "license": "CC0-1.0",
+  "clips": [
+    {
+      "name": "Idle",
+      "duration": 3.0,
+      "loop": true
+    },
+    {
+      "name": "CombatIdle",
+      "duration": 2.0,
+      "loop": true
+    },
+    {
+      "name": "Walk",
+      "duration": 1.0,
+      "loop": true
+    },
+    {
+      "name": "Run",
+      "duration": 0.7083333333333334,
+      "loop": true
+    },
+    {
+      "name": "GrappleIdle",
+      "duration": 2.0,
+      "loop": true
+    },
+    {
+      "name": "Stunned",
+      "duration": 1.0,
+      "loop": true
+    },
+    {
+      "name": "KnockdownFront",
+      "duration": 0.7916666666666666,
+      "loop": false
+    },
+    {
+      "name": "KnockdownBack",
+      "duration": 0.7916666666666666,
+      "loop": false
+    },
+    {
+      "name": "Grounded",
+      "duration": 2.0,
+      "loop": true
+    },
+    {
+      "name": "GetUpFront",
+      "duration": 1.4166666666666667,
+      "loop": false
+    },
+    {
+      "name": "GetUpBack",
+      "duration": 1.4166666666666667,
+      "loop": false
+    },
+    {
+      "name": "Taunt",
+      "duration": 2.0,
+      "loop": false
+    },
+    {
+      "name": "PinControl",
+      "duration": 2.0,
+      "loop": true
+    },
+    {
+      "name": "PinEscape",
+      "duration": 1.0,
+      "loop": false
+    },
+    {
+      "name": "SubmissionControl",
+      "duration": 2.0,
+      "loop": true
+    },
+    {
+      "name": "SubmissionDefense",
+      "duration": 2.0,
+      "loop": true
+    },
+    {
+      "name": "Victory",
+      "duration": 3.0,
+      "loop": true
+    },
+    {
+      "name": "Defeat",
+      "duration": 3.0,
+      "loop": true
+    },
+    {
+      "name": "StrikeActor",
+      "duration": 0.8333333333333334,
+      "loop": false
+    },
+    {
+      "name": "StrikeReceiver",
+      "duration": 0.8333333333333334,
+      "loop": false
+    },
+    {
+      "name": "KickActor",
+      "duration": 0.9166666666666666,
+      "loop": false
+    },
+    {
+      "name": "RunningActor",
+      "duration": 1.0833333333333333,
+      "loop": false
+    },
+    {
+      "name": "GrappleActor",
+      "duration": 1.0,
+      "loop": false
+    },
+    {
+      "name": "GrappleReceiver",
+      "duration": 1.0,
+      "loop": false
+    },
+    {
+      "name": "SlamActor",
+      "duration": 2.2083333333333335,
+      "loop": false
+    },
+    {
+      "name": "SlamReceiver",
+      "duration": 2.2083333333333335,
+      "loop": false
+    },
+    {
+      "name": "SuplexActor",
+      "duration": 2.4166666666666665,
+      "loop": false
+    },
+    {
+      "name": "SuplexReceiver",
+      "duration": 2.4166666666666665,
+      "loop": false
+    },
+    {
+      "name": "ThrowActor",
+      "duration": 1.7916666666666667,
+      "loop": false
+    },
+    {
+      "name": "ThrowReceiver",
+      "duration": 1.7916666666666667,
+      "loop": false
+    },
+    {
+      "name": "GroundStrikeActor",
+      "duration": 1.0,
+      "loop": false
+    },
+    {
+      "name": "GroundStrikeReceiver",
+      "duration": 1.0,
+      "loop": false
+    },
+    {
+      "name": "CounterActor",
+      "duration": 1.0833333333333333,
+      "loop": false
+    },
+    {
+      "name": "CounterReceiver",
+      "duration": 1.0833333333333333,
+      "loop": false
+    },
+    {
+      "name": "SignatureActor",
+      "duration": 2.5833333333333335,
+      "loop": false
+    },
+    {
+      "name": "SignatureReceiver",
+      "duration": 2.5833333333333335,
+      "loop": false
+    },
+    {
+      "name": "FinisherActor",
+      "duration": 3.0,
+      "loop": false
+    },
+    {
+      "name": "FinisherReceiver",
+      "duration": 3.0,
+      "loop": false
+    }
+  ],
+  "models": [
+    {
+      "id": "athletic",
+      "file": "athletic.glb",
+      "bytes": 6759992,
+      "bones": 53
+    },
+    {
+      "id": "powerhouse",
+      "file": "powerhouse.glb",
+      "bytes": 5926848,
+      "bones": 53
+    },
+    {
+      "id": "women_athletic",
+      "file": "women_athletic.glb",
+      "bytes": 5930548,
+      "bones": 53
+    }
+  ]
+}

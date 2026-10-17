@@ -1,7 +1,7 @@
 # 0042 — Add Skeletal Wrestler Locomotion and Semantic State Animation
 
 - **ID:** 0042
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0041, 0006, 0019
@@ -103,6 +103,10 @@ Additional clips may be introduced where justified.
 - [ ] Presentation-disabled simulation produces identical replay.
 - [ ] Desktop and mobile performance measured.
 - [ ] Full test/build/check/CI passes.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. Software exists and local automated gates pass. Required browser/physical-device/human criteria remain open; this is not a `complete` status.
 
 ## Completion evidence
 

@@ -36,7 +36,7 @@ Do not let broad roster/career work hide first-playable match-quality issues.
 
 ## Phase 6 — Character fidelity and mobile control redesign
 
-[Shared follow-up plan](https://chatgpt.com/s/t_6ad3d2e445a88191abf7356a9e32b115), imported 2026-10-17. TODOs **0041–0048 are proposed**, with all acceptance still open. Their source reports first-playtest findings; those observations are not new verification by this import.
+[Shared follow-up plan](https://chatgpt.com/s/t_6ad3d2e445a88191abf7356a9e32b115), imported 2026-10-17. TODOs **0041–0047 are implemented candidates**; **0048 is blocked** on real human/physical-device evidence. See [character/control validation](../docs/reviews/character-controls-validation.md). Required human acceptance remains open. Their source reports first-playtest findings; those observations are not new verification by this import.
 
 - Character track: **0041 → 0042 → 0043** (rigged humanoids, semantic clips, paired contact choreography).
 - Control track: **0044 → 0045 → 0046** (stable verbs, deterministic buffered intent, two-thumb layout).

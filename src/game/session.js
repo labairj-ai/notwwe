@@ -1,5 +1,5 @@
 import {newCareer,careerCommand,bookShow,applyResult} from '../systems/career/career.js';import {newMatch} from './match.js';import {dispatchMatch,advanceMatch} from './dispatch.js';import {wrestlerDef} from '../content/wrestlers.js';import {emit,clamp} from '../core/math.js';
-export const CURRENT_SAVE_VERSION=1;
+export const CURRENT_SAVE_VERSION=2;
 export const newSession=()=>({saveVersion:CURRENT_SAVE_VERSION,career:null,match:null,sequence:1,log:[]});
 const fail=code=>({ok:false,code,events:[]});
 export function dispatch(s,c){if(!c||typeof c.type!=='string')return fail('UNKNOWN_COMMAND');const next=structuredClone(s),events=[];let error=null;

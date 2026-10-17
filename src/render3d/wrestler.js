@@ -1,7 +1,34 @@
-import * as THREE from 'three';import {semanticPose} from '../presentation/wrestler-presentation.js';
-function part(root,geometry,color,x,y,z){const mesh=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({color,roughness:.75}));mesh.position.set(x,y,z);mesh.castShadow=true;root.add(mesh);return mesh;}
-export function createWrestler(def){const root=new THREE.Group(),body=new THREE.Group();root.add(body);const skin=def.presentation.skin,gear=def.presentation.gear;const torso=part(body,new THREE.CapsuleGeometry(.22,.48,4,8),skin,0,1.12,0);part(body,new THREE.BoxGeometry(.45,.24,.3),gear,0,.78,0);part(body,new THREE.SphereGeometry(.175,12,10),skin,0,1.72,0);part(body,new THREE.SphereGeometry(.18,10,8,0,Math.PI*2,0,Math.PI/2),def.presentation.hair,0,1.75,0);for(const x of [-.065,.065])part(body,new THREE.SphereGeometry(.018,6,6),'#182126',x,1.75,.16);
- const limbs=[];for(const side of [-1,1]){const arm=new THREE.Group();arm.position.set(side*.32,1.4,0);body.add(arm);part(arm,new THREE.CapsuleGeometry(.085,.38,4,7),skin,0,-.23,0);part(arm,new THREE.SphereGeometry(.09,8,7),gear,0,-.5,0);const leg=new THREE.Group();leg.position.set(side*.14,.69,0);body.add(leg);part(leg,new THREE.CapsuleGeometry(.105,.38,4,7),skin,0,-.22,0);part(leg,new THREE.BoxGeometry(.19,.25,.28),gear,0,-.55,.035);limbs.push({arm,leg,side});}
- const scale=def.physical.height/1.9;root.scale.setScalar(scale);
- return {root,body,def,limbs,update(w,time,pose,dt){root.position.x+=(w.position.x-root.position.x)*Math.min(1,dt*18);root.position.z+=(w.position.z-root.position.z)*Math.min(1,dt*18);root.rotation.y=w.facing;const sem=semanticPose(w,time);body.rotation.set(sem.down?-Math.PI/2:sem.rise?-.55:0,0,0);body.position.y=sem.down?.18:sem.sit?-.5:0;body.position.z=sem.down?.65:0;for(const l of limbs){l.arm.rotation.set(sem.victory||sem.taunt?-2.6:sem.walk*l.side,0,0);l.leg.rotation.set(-sem.walk*l.side,0,0);}if(pose){const wave=Math.sin(Math.PI*pose.phase);if(pose.gesture==='strike')limbs[1].arm.rotation.x=-1.5*wave;if(['lift','slam','counter'].includes(pose.gesture))for(const l of limbs)l.arm.rotation.x=-2*wave;if(['sell','fall'].includes(pose.gesture))body.rotation.z=.25*wave;if(pose.gesture==='flip'){body.rotation.x=-Math.PI*2*pose.phase;body.position.y=1.1*wave;}if(pose.gesture==='stomp')limbs[1].leg.rotation.x=-.8*wave;}}};
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone} from 'three/addons/utils/SkeletonUtils.js';
+import {LOOPING_CLIPS,semanticClip} from '../presentation/clips.js';
+import {createWrestler as createFallback} from './procedural-wrestler.js';
+const models=new Map();
+function load(id){if(!models.has(id))models.set(id,new GLTFLoader().loadAsync(new URL(`../../assets/wrestlers/${id}.glb`,import.meta.url).href).catch(e=>{models.delete(id);throw e;}));return models.get(id);}
+export async function loadWrestler(def,{loadAsset=load}={}){
+ try{const [asset,library]=await Promise.all([loadAsset(def.presentation.bodyAsset),loadAsset('athletic')]);return createRiggedWrestler(def,asset,library.animations);}
+ catch(error){console.warn('Wrestler asset unavailable; degraded geometry active.',error);return {...createFallback(def),degraded:true,dispose(){this.root.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});}};}
+}
+export function createRiggedWrestler(def,asset,clips=asset.animations){
+ const root=new THREE.Group(),model=clone(asset.scene);root.add(model);
+ const materials=[];model.traverse(o=>{if(!o.isMesh)return;o.castShadow=true;o.frustumCulled=false;
+  if(o.name.startsWith('Circuit_Hair_'))o.visible=o.name.endsWith(def.presentation.hairStyle);
+  const customize=material=>{const m=material.clone();materials.push(m);const name=m.name;if(name.includes('Skin'))m.color.set(def.presentation.skin);if(name.includes('Gear'))m.color.set(def.presentation.gear);if(name.includes('Hair'))m.color.set(def.presentation.hair);return m;};o.material=Array.isArray(o.material)?o.material.map(customize):customize(o.material);
+ });
+ const box=new THREE.Box3().setFromObject(model),size=box.getSize(new THREE.Vector3()),height=def.physical.height;
+ model.scale.setScalar(height/size.y);model.position.y=-box.min.y*height/size.y;
+ const width=def.archetype==='monster'?1.1:def.archetype==='high-flyer'?.94:1;root.scale.x=width;
+ const mixer=new THREE.AnimationMixer(model),actions=new Map(clips.map(c=>[c.name,mixer.clipAction(c)]));let active=null,key='',previousState=null;
+ function choose(name,fade=.14){const actual=actions.has(name)?name:actions.has('CombatIdle')?'CombatIdle':'Idle';if(actual===key)return;const next=actions.get(actual);if(!next)return;const before=active;key=actual;active=next;active.reset().setLoop(LOOPING_CLIPS.has(actual)?THREE.LoopRepeat:THREE.LoopOnce,Infinity);active.clampWhenFinished=true;active.enabled=true;active.setEffectiveWeight(1).play();if(before)active.crossFadeFrom(before,fade,false);}
+ return {root,model,mixer,actions,materials,degraded:false,update(w,time,pose,dt,{paused=false,reducedMotion=false,result=null}={}){
+  const position=pose?.alignment??w.position;const blend=paused?0:reducedMotion?1:Math.min(1,dt*18);root.position.x+=(position.x-root.position.x)*blend;root.position.z+=(position.z-root.position.z)*blend;root.rotation.y=pose?.alignment?.facing??w.facing;
+  let name=pose?.clip??semanticClip(w,result);
+  if(!pose&&w.state==='KNOCKED_DOWN'&&previousState!==w.state)name='KnockdownBack';
+  if(!pose&&w.state==='KNOCKED_DOWN'&&key==='KnockdownBack'&&active&&!active.isRunning())name='Grounded';
+  else if(!pose&&w.state==='KNOCKED_DOWN'&&key==='KnockdownBack'&&active?.isRunning())name='KnockdownBack';
+  if(reducedMotion)name=semanticClip(w,result);choose(name,reducedMotion?0:.14);
+  if(pose&&active){active.paused=true;active.time=pose.phase*active.getClip().duration;mixer.update(paused?0:Math.max(0,Math.min(dt,.1)));}
+  else if(active){active.paused=false;active.setEffectiveTimeScale(['WALKING','RUNNING'].includes(w.state)?Math.max(.3,w.movementMagnitude??1):1);if(reducedMotion){active.paused=true;active.time=['Grounded','Defeat'].includes(name)?active.getClip().duration*.5:0;mixer.update(0);}else if(!paused)mixer.update(Math.max(0,Math.min(dt,.1)));}
+  previousState=w.state;
+ },dispose(){mixer.stopAllAction();mixer.uncacheRoot(model);materials.forEach(m=>m.dispose());}};
 }

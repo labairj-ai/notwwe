@@ -1,7 +1,7 @@
 # 0044 — Replace Dynamic Action Buttons With Stable Wrestling Control Grammar
 
 - **ID:** 0044
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0020, 0021
@@ -175,6 +175,10 @@ Signature/Finisher availability must not insert new controls into the layout.
 - [ ] Signature/finisher control matrix.
 - [ ] Verify button geometry does not change across all contexts.
 - [ ] Full test/build/check/CI passes.
+
+## Implementation evidence — 0.2 candidate
+
+See [character/control validation](../docs/reviews/character-controls-validation.md) for concrete code, shipped asset measurements, test/scenario evidence, save/replay version impact, offline illustrations and remaining limitations. Software exists and local automated gates pass. Required browser/physical-device/human criteria remain open; this is not a `complete` status.
 
 ## Completion evidence
 

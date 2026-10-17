@@ -22,6 +22,7 @@ jobs:
       - run: npm test
       - run: npm run check
       - run: npm run scenarios
+      - run: npm run pacing
       - run: npm run build
       - uses: actions/upload-artifact@v4
         with:

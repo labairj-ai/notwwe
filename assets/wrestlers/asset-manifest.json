@@ -1,0 +1,101 @@
+{
+  "models": [
+    {
+      "id": "athletic",
+      "decodedTextureBytes": 20971520,
+      "imageDimensions": [
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        }
+      ],
+      "bytes": 6759992,
+      "triangles": 36506,
+      "bones": 53,
+      "images": 5,
+      "sha256": "58c143a4cde4013f6a48cabef5fa78780314ac2c14f1f55b6004758b336e0977"
+    },
+    {
+      "id": "powerhouse",
+      "decodedTextureBytes": 20971520,
+      "imageDimensions": [
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        }
+      ],
+      "bytes": 5926848,
+      "triangles": 36506,
+      "bones": 53,
+      "images": 5,
+      "sha256": "39e6fb26d1f8d5a04da75af0369313751784a87ea50cec8bdc88649c855775f5"
+    },
+    {
+      "id": "women_athletic",
+      "decodedTextureBytes": 20971520,
+      "imageDimensions": [
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "width": 1024,
+          "height": 1024
+        }
+      ],
+      "bytes": 5930548,
+      "triangles": 36506,
+      "bones": 53,
+      "images": 5,
+      "sha256": "76de37bf8e1f0c5e5b1b80a89b31d5bc415c9a30342034b0af103e7e1f5c3922"
+    }
+  ],
+  "totalBytes": 18617388,
+  "clips": 38,
+  "exporterSha256": "c40426577f4cab06138b088eda9d5c2bb849c5824ea8d572faff3d3dbe6f1f84",
+  "sourceLicense": "CC0-1.0"
+}
