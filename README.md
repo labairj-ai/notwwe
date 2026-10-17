@@ -112,7 +112,9 @@ The detailed backlog is in `.todos/`. The high-level phases are:
 | Career | 0022–0032 | roster, career, rivalries, booking, titles, calendar, saves |
 | Quality/release | 0033–0040 | replay, audio, camera, match expansion, acceptance and deployment |
 
-**Recommended first batch:** 0001–0006.  
+**Next backlog:** [0041–0048](.todos/README.md#phase-6--character-fidelity-and-mobile-control-redesign) improve rigged character fidelity, skeletal contact animation, stable touch controls, buffered input and match pacing, then require human acceptance. Further career/match-type expansion waits for 0048.
+
+**Original recommended first batch:** 0001–0006.
 **First-playable gate:** 0001–0021.  
 **Do not start broad career content until the first-playable gate passes human gameplay review.**
 

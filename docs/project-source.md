@@ -172,3 +172,16 @@ If you want, I can:
 - Suggest next steps to start implementing the project from TODOs 0001–0006
 - Propose detailed test cases and QA strategies for early implementation phases
 - Recommend how to integrate and validate the dependency graph during implementation
+
+
+## Character/control follow-up import — 2026-10-17
+
+Source: [shared follow-up plan](https://chatgpt.com/s/t_6ad3d2e445a88191abf7356a9e32b115). Retrieved the full shared-message text from the public page’s structured stream (the ordinary web fetch was unavailable).
+
+Added eight proposed tasks, 0041–0048, preserving their detailed goals, guardrails, acceptance checklists, QA and completion-evidence requirements. Split the two writing blocks into individual Markdown task files, removed conversation/writing wrappers, and expanded 0043’s 0007–0014 dependency range into explicit IDs. No gameplay code, tuning, assets, deployment or prior acceptance statuses changed.
+
+The source reports a human playtest and a Notsims comparison. This import records those as source-reported findings, not observations independently performed in this session. Intent buffering durations and touch target dimensions are proposed starting values, not validated tuning or physical-device evidence.
+
+Execution: character 0041 → 0042 → 0043; controls 0044 → 0045 → 0046 → 0047; converge on 0048. Additional career/match-type expansion is held until 0048 passes.
+
+Extracted shared-message text SHA-256: `bf9a11d71d6aee3b62663b03eccb9df7d3d66706a4c32a85bfc331a54c800269`.

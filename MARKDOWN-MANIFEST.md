@@ -44,6 +44,14 @@ Validation: every entry below exists in this package; TODO Markdown references w
 - `.todos/0038-perform-first-complete-desktop-mobile-gameplay-acceptance.md`
 - `.todos/0039-add-ci-branch-protection-and-release-certification.md`
 - `.todos/0040-deploy-first-playable-not-wwe-release.md`
+- `.todos/0041-replace-procedural-wrestlers-with-rigged-humanoid-character-pipeline.md`
+- `.todos/0042-add-skeletal-wrestler-locomotion-and-semantic-state-animation.md`
+- `.todos/0043-build-paired-skeletal-wrestling-choreography-and-contact-alignment.md`
+- `.todos/0044-replace-dynamic-action-buttons-with-stable-wrestling-control-grammar.md`
+- `.todos/0045-add-deterministic-buffered-player-intent.md`
+- `.todos/0046-build-mobile-first-two-thumb-wrestling-layout-and-control-customization-foundation.md`
+- `.todos/0047-retune-match-pacing-reaction-windows-and-ui-readability-for-human-control.md`
+- `.todos/0048-perform-character-fidelity-and-mobile-control-human-acceptance.md`
 - `.todos/README.md`
 - `CHANGELOG.md`
 - `CLAUDE.md`

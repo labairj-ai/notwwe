@@ -34,6 +34,15 @@ Do not let broad roster/career work hide first-playable match-quality issues.
 
 0037 is a tag-team architecture foundation, not permission to expand into a full multi-team game before singles is stable.
 
+## Phase 6 — Character fidelity and mobile control redesign
+
+[Shared follow-up plan](https://chatgpt.com/s/t_6ad3d2e445a88191abf7356a9e32b115), imported 2026-10-17. TODOs **0041–0048 are proposed**, with all acceptance still open. Their source reports first-playtest findings; those observations are not new verification by this import.
+
+- Character track: **0041 → 0042 → 0043** (rigged humanoids, semantic clips, paired contact choreography).
+- Control track: **0044 → 0045 → 0046** (stable verbs, deterministic buffered intent, two-thumb layout).
+- Pacing follows the control track at **0047**; both tracks converge on **0048 human acceptance**.
+- Block additional career and match-type expansion until 0048 passes. Existing implementation statuses and open human/device gates remain unchanged.
+
 ## Full backlog
 
 | ID | Priority | Work | Depends |
@@ -78,6 +87,14 @@ Do not let broad roster/career work hide first-playable match-quality issues.
 | 0038 | Critical | Perform first complete desktop/mobile gameplay acceptance | 0021, 0033, 0034, 0035, 0036 |
 | 0039 | Critical | Add CI, branch protection and release certification | 0033, 0038 |
 | 0040 | Critical | Deploy first playable Not WWE release | 0039 |
+| 0041 | Critical | [Replace Procedural Wrestlers With Rigged Humanoid Character Pipeline](0041-replace-procedural-wrestlers-with-rigged-humanoid-character-pipeline.md) | 0018, 0019 |
+| 0042 | Critical | [Add Skeletal Wrestler Locomotion and Semantic State Animation](0042-add-skeletal-wrestler-locomotion-and-semantic-state-animation.md) | 0041, 0006, 0019 |
+| 0043 | Critical | [Build Paired Skeletal Wrestling Choreography and Contact Alignment](0043-build-paired-skeletal-wrestling-choreography-and-contact-alignment.md) | 0041, 0042, 0007, 0008, 0009, 0010, 0011, 0012, 0013, 0014 |
+| 0044 | Critical | [Replace Dynamic Action Buttons With Stable Wrestling Control Grammar](0044-replace-dynamic-action-buttons-with-stable-wrestling-control-grammar.md) | 0020, 0021 |
+| 0045 | Critical | [Add Deterministic Buffered Player Intent](0045-add-deterministic-buffered-player-intent.md) | 0044, 0004, 0033 |
+| 0046 | Critical | [Build Mobile-First Two-Thumb Wrestling Layout and Control Customization Foundation](0046-build-mobile-first-two-thumb-wrestling-layout-and-control-customization-foundation.md) | 0044, 0045 |
+| 0047 | Critical | [Retune Match Pacing, Reaction Windows and UI Readability for Human Control](0047-retune-match-pacing-reaction-windows-and-ui-readability-for-human-control.md) | 0044, 0045, 0046 |
+| 0048 | Critical | [Perform Character Fidelity and Mobile Control Human Acceptance](0048-perform-character-fidelity-and-mobile-control-human-acceptance.md) | 0041, 0042, 0043, 0044, 0045, 0046, 0047 |
 
 ## Status rules
 
