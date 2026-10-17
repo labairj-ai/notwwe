@@ -11,3 +11,7 @@ Thumbs.db
 # Editor-local configuration
 .idea/
 .vscode/
+
+node_modules/
+dist/
+artifacts/

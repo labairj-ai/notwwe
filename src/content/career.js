@@ -1,0 +1,4 @@
+export const CHAMPIONSHIPS=[{id:'harbor_crown',name:'Harbor Crown',initialHolder:'viktor'}];
+export const TRAINING={strength:{rating:'power',gain:2,fatigue:14},technique:{rating:'technique',gain:2,fatigue:10},conditioning:{rating:'stamina',gain:2,fatigue:8}};
+export const CONTRACTS=[{id:'rookie',label:'Harbor Talent Agreement',weeks:12,pay:250,winBonus:100,requiredPopularity:0},{id:'featured',label:'Featured Performer',weeks:16,pay:550,winBonus:200,requiredPopularity:35},{id:'headliner',label:'Main Event Agreement',weeks:20,pay:1000,winBonus:400,requiredPopularity:70}];
+export const STORY_EVENTS=[{id:'microphone',label:'Your microphone moment',choices:[{id:'respect',label:'Praise your opponent',popularity:2,heat:3,alignment:2},{id:'challenge',label:'Issue a challenge',popularity:1,heat:9,alignment:-2},{id:'quiet',label:'Let the match speak',popularity:0,heat:-2,alignment:0}]}];

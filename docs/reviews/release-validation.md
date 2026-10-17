@@ -1,39 +1,15 @@
-# Release validation record
+# Release validation — implementation candidate
 
-**Status:** template
+Date: 2026-10-17. Branch: `codex/build-notwwe-backlog`. Exact commit identity is recorded in the built package and PR commits; no production certification is claimed.
 
-## Identity
+- Automated local suite: 27 passing tests, 36 exact replay scenarios, content/syntax/37-module dependency checks, full static build.
+- Branch protection: GitHub API PUT/readback confirmed required `build` status, strict up-to-date checks, PR requirement (zero additional approving reviewers), administrator enforcement, linear history, conversation resolution, force pushes disabled and deletion disabled.
+- Release package: complete static output includes Three.js MIT license, file hashes and `sourceSha`/`sourceClean` metadata. The build-stage `certified` flag is false.
+- Rollback rehearsal: temporary filesystem test swaps current/previous release pointers atomically; corruption and uncertified activation are rejected. No existing production route was changed.
+- Clean checkout and CI verification: see follow-up evidence below after the candidate commit is pushed.
 
-- Release:
-- Source SHA:
-- Source clean: yes/no
-- Built at:
-- Previous release:
+## Acceptance still open
 
-## Automated gates
+CUA inventory registered no browsers; requesting Chrome returned “Browser is not available”. No WebGL visual smoke or physical device testing was performed. Human audible-output, choreography/contact/readability, comfort, originality and gameplay/balance review remain open. This blocks certified production activation.
 
-- `npm test`:
-- `npm run build`:
-- `npm run check`:
-- CI workflow/check:
-- packaged file integrity:
-
-## Browser smoke
-
-Record desktop/mobile viewport results, runtime errors, asset failures and fallback behavior.
-
-## Human/device acceptance
-
-List only observations actually performed. Do not infer audible output, animation quality, touch comfort or fun from automated tooling.
-
-## Deployment verification
-
-- production URL/path:
-- build identity endpoint/file:
-- key assets HTTP status/MIME:
-- prior routes unaffected:
-- rollback target retained:
-
-## Known limitations
-
-Record outstanding acceptance or product limitations.
+Public URL https://optiplex.tailb97cdb.ts.net/notwwe/ retains its existing planning landing page. This change does not claim a public playable release. Activation, key-asset MIME/hash verification at that path, previous-release retention and production human smoke must be recorded against an accepted exact SHA before TODO 0040 can be complete.

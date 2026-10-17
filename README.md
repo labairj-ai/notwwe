@@ -2,13 +2,21 @@
 
 **Working codename:** Not WWE  
 **Project type:** browser-first professional wrestling career game  
-**Status:** architecture and first-playable planning
+**Status:** playable implementation candidate; human/device certification pending
 
 Not WWE is an original professional-wrestling career game built around a deterministic simulation, an active 3D match layer, persistent career progression, rivalries, championships and a mobile-first interface derived from the successful interaction patterns used in Notsims.
 
 The player chooses a fictional wrestler, works a weekly schedule, cuts promos, develops rivalries, wrestles matches, improves skills and attempts to become the promotion's top star. Winning matters, but match quality, crowd response and story context also drive career outcomes.
 
 > **IP note:** `Not WWE` is an internal working title. Public release naming, branding, characters, belts, music, logos, attire and story content must remain original. See `docs/architecture/ip-and-content-guardrails.md`.
+
+## Run locally
+
+Requires Node 22 or newer. Run `npm ci`, then `npm run dev` and open http://127.0.0.1:5193. `npm run build` creates a complete static `dist/` package with Three.js included. No backend, accounts, model service or external asset host is needed.
+
+The implementation includes 12 selectable wrestlers, singles/championship/No-DQ matches, procedural 3D characters and arena, touch/keyboard controls, a weekly career with training, promos, rivalries, rankings, title history, contracts, and save import/export. Display title: **Harbor Circuit**, subject to originality review.
+
+See [implementation evidence](docs/reviews/implementation-validation.md) for automated results and remaining acceptance. The original first-playable human gate remains open; the user explicitly requested the whole software backlog, so career code is available for review before certification.
 
 ## Product principles
 
