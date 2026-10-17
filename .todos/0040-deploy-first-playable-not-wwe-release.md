@@ -61,6 +61,10 @@ Implement this capability inside the documented Not WWE architecture without wea
 
 See [implementation validation](../docs/reviews/implementation-validation.md) for code ownership, commands, test counts, replay evidence and limitations. Status is intentionally not `complete`: unchecked acceptance below has not been certified. Human desktop, physical iOS/Android, audible-output, originality and gameplay acceptance are unavailable in this session. Certified production activation is gated on those results.
 
+## Activation evidence
+
+The user explicitly requested deployment after implementation. The clean `bbf16e91dbded33f52410b2b0df6045e866badd8` candidate is live on OptiPlex, public HTTP/MIME/hash/identity verification passed, and the planning page remains the rollback target. See `docs/reviews/release-validation.md` and `deploy/HOSTING.md`. Certification remains false; human/device acceptance is still open, so this TODO is not complete.
+
 ## Completion evidence
 
 When implemented, record:
