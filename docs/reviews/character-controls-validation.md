@@ -83,3 +83,8 @@ Save v2 migrates v1 purely and preserves already resolved damage. Pending reques
 CUA browser/desktop visual review is unavailable, as are physical iPhone/Android and human audible/gameplay observations. The original human gates remain open. Candidate deployment can be performed under the user's existing explicit OptiPlex instruction while `certified:false` stays truthful; deployment does not close 0048 or certify release quality. No broader career, roster or match-type expansion is included.
 
 Offline source-asset illustrations (Blender, not runtime screenshots): [lift](media/suplex-lift-offline.png), [landing phase](media/suplex-landing-offline.png). These show an authored athletic/athletic pair with source material tints; the runtime uses independent roster proportions and bounded alignment. They do not certify contact at other sizes, a browser frame or physical-device quality.
+
+
+## Published candidate identity
+
+PR [#5](https://github.com/labairj-ai/notwwe/pull/5) merged after [passing CI](https://github.com/labairj-ai/notwwe/actions/runs/39066887973). Source `e53e5cc406d85e72101365d4d8a1d8aec15214eb` was built clean and activated on OptiPlex at 2026-10-17T20:30:25Z. Public HTTP/MIME/hash/source checks passed, including all three GLBs and packaged loader/skeleton modules. Previous playable release retained for rollback. See [release validation](release-validation.md). Human/device certification is still false; this activation does not close 0048.
