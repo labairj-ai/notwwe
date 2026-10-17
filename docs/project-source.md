@@ -26,13 +26,117 @@ It exposes their names and the overview, but does not include their file content
 This repository therefore does not invent the missing architecture contracts,
 dependencies, task acceptance criteria, or licensing decisions.
 
-## Pending import
+## Partial import — 2026-10-17
 
-Obtain the original ZIP from the originating conversation and import its Markdown
-files, reviewing its agent instructions before implementation. Preserve the
-original manifest and validate archive paths, internal Markdown links and the
-TODO dependency graph. Reconcile this initialization README with the upstream
-README rather than silently discarding either source record.
+The user supplied eight original Markdown files from `/Users/ai_lab/Downloads`.
+They have been copied verbatim into their intended repository paths:
+
+- `README.md`
+- `CLAUDE.md`
+- `.todos/README.md` (source filename: `README (1).md`)
+- `MARKDOWN-MANIFEST.md`
+- `docs/architecture/game-architecture.md`
+- `docs/architecture/system-boundaries.md`
+- `docs/architecture/match-resolution.md`
+- `docs/product/first-playable.md`
+
+The imported README supersedes the initialization README's planning summary.
+The initialization established an independent wrestling-game repository with no
+implementation or gameplay completion claimed; that remains the current status.
+The architecture now specifies plain ES modules, serializable state and a
+renderer-neutral deterministic simulation, with Three.js presentation.
+
+## TODO import — 2026-10-17
+
+The user supplied `/Users/ai_lab/Downloads/.todos`. All 40 detailed task files
+(0001–0040), plus its README, have been imported verbatim into `.todos/`.
+The task IDs are contiguous, every declared dependency exists, and the dependency
+graph has no cycles. All imported files were verified byte-for-byte against the
+supplied originals. Task statuses remain unchanged.
+
+The complete archive and other documents listed in the manifest remain
+unavailable. This is a partial source import, not a validated complete package.
+Some internal links remain unresolved. TODO 0001 is now available; its commands/events contract was supplied in the
+subsequent import below. No gameplay code has
+been added and no task has been marked complete.
+
+## Additional contracts and v2 manifest — 2026-10-17
+
+Imported three user-supplied files verbatim from Downloads:
+
+- `MARKDOWN-MANIFEST.md` (replaces the initial manifest);
+- `docs/architecture/commands-events.md`;
+- `docs/reviews/documentation-integrity-validation.md`.
+
+All four contracts named in TODO 0001's Touches section now exist. The supplied
+integrity report describes the upstream v2 bundle; its passing result does not
+certify this partial local checkout. Local inspection found 50/75 manifest
+entries present and 25 absent. Missing manifest entries are:
+
+- `CHANGELOG.md`
+- `CONTRIBUTING.md`
+- `assets/README.md`
+- `deploy/README.md`
+- `docs/README.md`
+- `docs/architecture/audio.md`
+- `docs/architecture/career-booking.md`
+- `docs/architecture/content-model.md`
+- `docs/architecture/ip-and-content-guardrails.md`
+- `docs/architecture/match-state-machine.md`
+- `docs/architecture/mobile-interface.md`
+- `docs/architecture/opponent-ai.md`
+- `docs/architecture/presentation-animation.md`
+- `docs/architecture/rivalry-system.md`
+- `docs/architecture/save-schema.md`
+- `docs/architecture/scenario-replay.md`
+- `docs/architecture/tag-team.md`
+- `docs/architecture/testing-release-gates.md`
+- `docs/product/game-design.md`
+- `docs/product/initial-roster.md`
+- `docs/reviews/TEMPLATE.md`
+- `docs/reviews/current-capability-map.md`
+- `docs/reviews/first-playable-acceptance.md`
+- `docs/reviews/release-validation.md`
+- `tests/README.md`
+
+TODOs also reference the following absent Markdown paths (resolved from the
+repository root, per the supplied reference policy):
+
+- `CHANGELOG.md`
+- `assets/README.md`
+- `deploy/README.md`
+- `docs/architecture/audio.md`
+- `docs/architecture/match-state-machine.md`
+- `docs/architecture/save-schema.md`
+- `docs/architecture/scenario-replay.md`
+- `docs/architecture/tag-team.md`
+- `docs/product/initial-roster.md`
+- `docs/reviews/first-playable-acceptance.md`
+- `docs/reviews/release-validation.md`
+
+No runtime code or TODO completion status changed during this import.
+
+## Complete non-TODO v3 import — 2026-10-17
+
+Imported all 34 Markdown files from the user-supplied
+`/Users/ai_lab/Downloads/notwwe-nontodo-docs-v3`, preserving their contents
+byte-for-byte. Together with the previously imported TODO folder, the repository
+now contains all 75 manifest entries. Earlier missing-file lists above are
+historical and have been resolved by this import.
+
+Local validation passed:
+
+- every manifest entry exists, with no duplicate entries;
+- TODO IDs 0001–0040 exist exactly once;
+- every declared dependency exists and the dependency graph is acyclic;
+- every backtick-quoted Markdown path in the detailed TODOs exists;
+- all relative Markdown link targets exist;
+- all four contracts referenced by TODO 0001 exist.
+
+Local additions `deploy/HOSTING.md`, `deploy/site/index.html` and this source
+record were preserved. No game implementation or TODO status was changed.
+Runtime tests/build/checks are not available yet; this validates documentation
+integrity only. The upstream integrity report is preserved verbatim.
 
 The source overview is preserved below for provenance.
 
