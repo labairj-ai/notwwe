@@ -36,3 +36,17 @@ The candidate was subsequently deployed at the user’s explicit request; see ac
 - Existing root and `/notsims/` returned HTTP 200 after activation.
 - No browser visual, physical-device, audible-output or subjective gameplay certification claimed. `build-info.json` remains `certified: false`.
 - Rollback procedure and pointers: `deploy/HOSTING.md`.
+
+
+## 0.2 rigged-character/control deployment
+
+- Implementation PR: https://github.com/labairj-ai/notwwe/pull/5 (merged).
+- CI: https://github.com/labairj-ai/notwwe/actions/runs/39066887973 — success, 43 tests, source/asset checks, 36 exact replays, 36 difficulty pacing samples and static build.
+- Deployed source: `e53e5cc406d85e72101365d4d8a1d8aec15214eb`, clean main tree. Complete 61-file hashed package verified locally and after transfer.
+- Activated: 2026-10-17T20:30:25.383258Z; public https://optiplex.tailb97cdb.ts.net/notwwe/.
+- Current: `releases/e53e5cc406d85e72101365d4d8a1d8aec15214eb`; previous: `releases/bbf16e91dbded33f52410b2b0df6045e866badd8`; planning page `site` still retained.
+- Only scoped GLB MIME added to the isolated NotWWE listener; Nginx configuration test/reload passed. No other listener/Funnel route modified.
+- Public verifier passed expected clean source SHA, JS/CSS/HTML/SVG/JSON and all three GLB MIME and hash checks, including GLTFLoader, SkeletonUtils and BufferGeometryUtils modules.
+- Existing root and `/notsims/` returned HTTP 200 after activation.
+- Metadata remains `certified:false`. No usable CUA browser/Chrome window, physical-phone session, audible human test or subjective contact/gameplay acceptance was available. TODO 0048 remains blocked on that evidence.
+- Save v2 migration/storage and rollback limitations: `docs/architecture/save-schema.md`; rollback pointers/procedure: `deploy/HOSTING.md`.
