@@ -56,3 +56,5 @@ Every observation belongs to its actual full source SHA. If the candidate change
 ## Decision
 
 **Iterate / human acceptance open.** No physical session, audible test, subjective fun, character fidelity or device pass is claimed. `certified:false` stays in the release until actual acceptance gates pass.
+
+Frozen template documentation commit: [94f32672cd7f3f38e60fb910ffb5ce8d60cf6223](https://github.com/labairj-ai/notwwe/commit/94f32672cd7f3f38e60fb910ffb5ce8d60cf6223). This reference records the completed freeze without changing its deployed implementation SHA.

@@ -122,3 +122,5 @@ Imported from the [shared 0.2 acceptance follow-up plan](https://chatgpt.com/s/t
 ## Completion evidence
 
 Candidate implementation `dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d` exists on main and exact-SHA CI [39082644918](https://github.com/labairj-ai/notwwe/actions/runs/39082644918) passed. Clean deployment record and public metadata identify the same source; certification remains false. Frozen acceptance template revision 3 and acceptance-candidate.json contain all identity/count fields, three independent observed-SHA session columns, diagnostics instructions and retest policy. Documentation commit SHA is recorded by the containing documentation PR and follow-up commit reference. No human acceptance inferred; 0048 stays blocked.
+
+Documentation freeze commit: `94f32672cd7f3f38e60fb910ffb5ce8d60cf6223`. The subsequent reference-only commit records this hash and does not change the candidate.

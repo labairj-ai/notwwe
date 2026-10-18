@@ -20,5 +20,6 @@
   "humanAcceptance": "not performed",
   "saveVersion": 3,
   "simulationVersion": 3,
-  "timingVersion": 2
+  "timingVersion": 2,
+  "documentationCommitSha": "94f32672cd7f3f38e60fb910ffb5ce8d60cf6223"
 }
