@@ -213,3 +213,5 @@ Imported from the [shared 0.2 acceptance follow-up plan](https://chatgpt.com/s/t
 ## Implementation evidence
 
 Implemented on `codex/semantic-intents-acceptance-diagnostics`; exact merged source and CI are recorded in the frozen first-playable acceptance header after deployment. See character-controls-validation.md and architecture contracts for semantic policy, schema/limits, migration, local report capture and tests. Only Counter is opportunistic. Full validation and CI are required before merge; human/device acceptance remains 0048.
+
+Merged implementation: `dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d`; exact-SHA CI: https://github.com/labairj-ai/notwwe/actions/runs/39082644918. 51 tests, 36 exact replays, 36 pacing runs; clean build and public deployment verified. Local completed-match example: docs/reviews/control-diagnostics-sample.json.

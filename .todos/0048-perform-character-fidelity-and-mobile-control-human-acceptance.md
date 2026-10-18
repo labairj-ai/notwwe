@@ -125,3 +125,7 @@ Record:
 Created from the first human playtest of the deployed Not WWE candidate and subsequent mobile-control research covering mobile wrestling/fighting games, touch ergonomics, accessibility guidance and deterministic input-buffer design.
 
 Imported from the [shared character and control follow-up plan](https://chatgpt.com/s/t_6ad3d2e445a88191abf7356a9e32b115) on 2026-10-17. Playtest findings and Notsims comparisons above are reported by that plan; importing them does not independently verify those observations or satisfy acceptance.
+
+## Frozen candidate prerequisite
+
+0049/0051 implemented; 0050 freezes `dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d`. Use the first-playable acceptance template revision 3 and confirm observed full SHA separately for desktop, physical iPhone and physical Android. Human/device evidence remains unavailable and this TODO stays blocked.

@@ -45,7 +45,7 @@ Do not let broad roster/career work hide first-playable match-quality issues.
 
 ## Phase 7 — Acceptance preparation
 
-[Shared follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435), imported 2026-10-17. **0049–0051 are proposed**; no gameplay changes or acceptance are claimed by this import.
+[Shared follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435), imported 2026-10-17. **0049–0051 are implemented**: semantic buffering, bounded local diagnostics and the exact deployed acceptance candidate are recorded in the first-playable acceptance header. **0048 remains blocked** on human/physical-device evidence.
 
 **0049 → 0051 → 0050 → 0048**
 
