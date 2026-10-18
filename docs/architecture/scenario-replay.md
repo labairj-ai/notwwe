@@ -46,3 +46,7 @@ Use an explicit uint32-seeded reproducible generator with serializable state. If
 New traces are replay version 2 / simulationVersion 2. They include raw movement/control-intent commands, tick advances, ordered results and initial serializable state. Buffer expiry, wind-up resolution, AI initiative and RNG replay exactly through save/resume. Old version-1 traces are rejected explicitly because the timing/rules profile changed; the v1 save migration remains supported. Re-running old traces under new balance is not claimed compatible.
 
 `npm run scenarios` covers 36 complete match-type/seed replays; `npm run pacing` separately samples all three difficulty tiers and records durations, pins, reversals, misses and per-participant attack rates. Headless timings are diagnostics, not human reaction-time or fun acceptance.
+
+## Replay version 3
+
+Semantic buffering and deterministic diagnostic counters use replay format/simulation version 3. Older traces are explicitly rejected rather than silently reinterpreted. Timing profile remains 2 and opponent AI is unchanged. Version-3 snapshots preserve pending command meaning and diagnostic counters across save/reload; fixed tick chunking produces identical state and ordered events.

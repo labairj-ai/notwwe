@@ -1,7 +1,7 @@
 # 0049 — Preserve Buffered Control Intent Semantics Across Context Changes
 
 - **ID:** 0049
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0044, 0045
@@ -135,34 +135,34 @@ Do not silently change this table during implementation.
 
 ## Done when
 
-- [ ] Buffered ACTION cannot silently change from TAUNT to PIN.
-- [ ] Buffered ACTION cannot silently change from PIN to TAUNT.
-- [ ] Buffered STRIKE cannot silently change from standing strike to ground attack.
-- [ ] Buffered SPECIAL cannot upgrade from unavailable to Signature/Finisher merely because momentum changes during the buffer.
-- [ ] Buffered grapple direction preserves the intended move slot.
-- [ ] COUNTER can still execute against an opportunity that begins within its allowed buffer.
-- [ ] Impossible preserved semantic intents expire without mutation.
-- [ ] Save/reload preserves queued intent.
-- [ ] Replay reproduces queued intent and execution exactly.
-- [ ] Chunked vs. unchunked simulation remains equivalent.
+- [x] Buffered ACTION cannot silently change from TAUNT to PIN.
+- [x] Buffered ACTION cannot silently change from PIN to TAUNT.
+- [x] Buffered STRIKE cannot silently change from standing strike to ground attack.
+- [x] Buffered SPECIAL cannot upgrade from unavailable to Signature/Finisher merely because momentum changes during the buffer.
+- [x] Buffered grapple direction preserves the intended move slot.
+- [x] COUNTER can still execute against an opportunity that begins within its allowed buffer.
+- [x] Impossible preserved semantic intents expire without mutation.
+- [x] Save/reload preserves queued intent.
+- [x] Replay reproduces queued intent and execution exactly.
+- [x] Chunked vs. unchunked simulation remains equivalent.
 
 ## QA requirements
 
 Add explicit tests for:
 
-- [ ] ACTION queued standing → opponent becomes knocked down.
-- [ ] ACTION queued knocked down → opponent stands.
-- [ ] STRIKE queued standing → target becomes grounded.
-- [ ] STRIKE queued grounded → target begins getting up.
-- [ ] SPECIAL queued at 59 momentum → momentum rises above 60.
-- [ ] SPECIAL queued below 90 → momentum rises above 90.
-- [ ] Grapple queued with direction → direction changes before execution.
-- [ ] COUNTER queued before attack telegraph.
-- [ ] COUNTER queued after telegraph but before resolution.
-- [ ] Intent expires at exact boundary.
-- [ ] Save/reload with pending intent.
-- [ ] Exact replay equivalence.
-- [ ] Full test/build/check/CI passes.
+- [x] ACTION queued standing → opponent becomes knocked down.
+- [x] ACTION queued knocked down → opponent stands.
+- [x] STRIKE queued standing → target becomes grounded.
+- [x] STRIKE queued grounded → target begins getting up.
+- [x] SPECIAL queued at 59 momentum → momentum rises above 60.
+- [x] SPECIAL queued below 90 → momentum rises above 90.
+- [x] Grapple queued with direction → direction changes before execution.
+- [x] COUNTER queued before attack telegraph.
+- [x] COUNTER queued after telegraph but before resolution.
+- [x] Intent expires at exact boundary.
+- [x] Save/reload with pending intent.
+- [x] Exact replay equivalence.
+- [x] Full test/build/check/CI passes.
 
 ## Completion evidence
 
@@ -181,3 +181,7 @@ Record:
 Created from review of the 0.2 candidate after implementation of TODOs 0041–0047.
 
 Imported from the [shared 0.2 acceptance follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435) on 2026-10-17. Candidate identity, validation counts and review findings above describe the source plan; this import neither implements the task nor certifies human acceptance. For 0050, freeze the actual post-0049/post-0051 deployed SHA rather than carrying forward a superseded candidate.
+
+## Implementation evidence
+
+Implemented on `codex/semantic-intents-acceptance-diagnostics`; exact merged source and CI are recorded in the frozen first-playable acceptance header after deployment. See character-controls-validation.md and architecture contracts for semantic policy, schema/limits, migration, local report capture and tests. Only Counter is opportunistic. Full validation and CI are required before merge; human/device acceptance remains 0048.

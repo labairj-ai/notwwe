@@ -48,3 +48,9 @@ Direction + Grapple chooses authored neutral/up/left/right/down move slots. Stri
 Geometry is configuration: Standard/Compact/Large/Left-handed presets are device preferences. Base diameters Strike/Grapple 70px, Action/Counter 62px, Special 56px; compact scale .94, large 1.06. Landscape applies an additional .94 scaling; the smallest compact Special target remains >49px. Stick radius 52px, deadzone .12, smooth saturation. Touch capture/release/cancel/lost capture, blur, visibility, orientation and layout changes release movement safely. Held keyboard/gamepad buttons are edge-triggered for verbs.
 
 Match controls favor landscape; portrait career/menu remains usable. Safe-area insets, reserved bottom-sheet space and automatic wide camera framing keep required controls independent of camera operation. Two-finger camera adjustment or paused camera adjustment is optional. No single-finger camera gesture can dispatch wrestling. Physical thumb reach, notches, accidental touches and thermal/frame behavior remain open under TODO 0048.
+
+## Acceptance diagnostics (0051)
+
+Menu → Acceptance tools shows the page's embedded source SHA and exports local per-control JSON. Export after a completed match before starting another. It includes queued/executed/expired/replaced/cancelled, average/max execution wait in ticks, and stable non-execution reasons. Match end counts pending intents as cancelled/MATCH_ENDED; replacement is attributed to the replaced action. It sends nothing remotely and collects no personal information. The normal match HUD is unchanged.
+
+The SHA belongs to the loaded page, never fetched from a potentially newer deployment. Testers must open the frozen release URL and independently confirm that SHA before recording observations. A report is supporting diagnostic evidence, not human acceptance.

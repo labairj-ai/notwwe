@@ -41,3 +41,40 @@ export function controlLabel(m,id,action,direction) {
   const command=m&&resolveControl(m,id,action,direction);
   return ({ATTEMPT_PIN:'Pin',ATTEMPT_SUBMISSION:'Submit',CANCEL_CONTEXT:'Release',TAUNT:'Taunt'})[command?.type]??'Action';
 }
+
+// Capture meaning at button-down. Only Counter searches for a later opportunity.
+export function contextIdentity(m,id) {
+  for(const kind of ['pin','submission','grapple']) {
+    const c=m[kind];
+    if(c?.actor===id)return JSON.stringify([kind,c.actor,c.target,kind==='pin'?c.next-(c.count+1)*10:kind==='grapple'?c.expires:c.start]);
+  }
+  return null;
+}
+export function captureControl(m,id,action,direction) {
+  const command=resolveControl(m,id,action,direction);
+  if(action==='COUNTER')return {kind:'counter'};
+  if(action==='SPECIAL'&&m.wrestlers[id].momentum<60)return {kind:'unavailable'};
+  if(!command)return {kind:'unavailable'};
+  const def=wrestlerDef(id);
+  if(command.type==='ATTEMPT_SIGNATURE')command.moveId=def.moveset.signature;
+  if(command.type==='ATTEMPT_FINISHER')command.moveId=def.moveset.finisher;
+  if(command.type==='ATTEMPT_SUBMISSION')command.moveId=def.moveset.submissions[0];
+  const target=m.wrestlers[command.targetId];
+  return {kind:'fixed',command,grounded:target.state==='KNOCKED_DOWN',context:['SELECT_GRAPPLE_MOVE','CANCEL_CONTEXT'].includes(command.type)?contextIdentity(m,id):null};
+}
+export function intentCommand(m,id,intent) {
+  const s=intent.semantic;
+  if(s.kind==='counter')return {command:resolveControl(m,id,'COUNTER',intent.direction),reason:'NO_OPPORTUNITY'};
+  if(s.kind==='unavailable')return {command:null,reason:'MOVE_NOT_AVAILABLE'};
+  const target=m.wrestlers[s.command.targetId];
+  if((target.state==='KNOCKED_DOWN')!==s.grounded || s.context!==null&&contextIdentity(m,id)!==s.context)return {command:null,reason:'TARGET_CONTEXT_CHANGED'};
+  return {command:s.command};
+}
+export function validSemantic(s,id,action,participants) {
+  if(!s||!['fixed','counter','unavailable'].includes(s.kind))return false;
+  if(s.kind==='counter')return action==='COUNTER'&&Object.keys(s).length===1;
+  if(s.kind==='unavailable')return action==='SPECIAL'&&Object.keys(s).length===1;
+  const allowed={STRIKE:['ATTEMPT_STRIKE','ATTEMPT_GROUND_ACTION'],GRAPPLE:['ATTEMPT_GRAPPLE','SELECT_GRAPPLE_MOVE'],ACTION:['TAUNT','ATTEMPT_PIN','ATTEMPT_SUBMISSION','CANCEL_CONTEXT'],SPECIAL:['ATTEMPT_SIGNATURE','ATTEMPT_FINISHER']};
+  const c=s.command;
+  return Object.keys(s).length===4&&typeof s.grounded==='boolean'&&(s.context===null||typeof s.context==='string'&&s.context.length<150)&&!!c&&allowed[action]?.includes(c.type)&&c.actorId===id&&participants.includes(c.targetId)&&c.targetId!==id&&Object.keys(c).every(k=>['type','actorId','targetId','moveId'].includes(k))&&(['ATTEMPT_STRIKE','ATTEMPT_GROUND_ACTION','SELECT_GRAPPLE_MOVE','ATTEMPT_SUBMISSION','ATTEMPT_SIGNATURE','ATTEMPT_FINISHER'].includes(c.type)?!!moveDef(c.moveId):c.moveId===undefined)&&(['SELECT_GRAPPLE_MOVE','CANCEL_CONTEXT'].includes(c.type)?s.context!==null:s.context===null);
+}

@@ -1,0 +1,116 @@
+{
+  "reportVersion": 1,
+  "candidate": null,
+  "matchId": "exhibition-17",
+  "tick": 1305,
+  "complete": true,
+  "partial": false,
+  "legacy": null,
+  "controls": {
+    "STRIKE": {
+      "queued": 1,
+      "executed": 0,
+      "expired": 1,
+      "replaced": 0,
+      "cancelled": 0,
+      "waitTicks": 0,
+      "maxWaitTicks": 0,
+      "reasons": {
+        "OUT_OF_RANGE": 1,
+        "INVALID_STATE": 0,
+        "INSUFFICIENT_STAMINA": 0,
+        "MOVE_NOT_AVAILABLE": 0,
+        "NO_OPPORTUNITY": 0,
+        "TARGET_CONTEXT_CHANGED": 0,
+        "MATCH_ENDED": 0,
+        "REPLACED": 0,
+        "OTHER": 0
+      },
+      "averageWaitTicks": 0
+    },
+    "GRAPPLE": {
+      "queued": 0,
+      "executed": 0,
+      "expired": 0,
+      "replaced": 0,
+      "cancelled": 0,
+      "waitTicks": 0,
+      "maxWaitTicks": 0,
+      "reasons": {
+        "OUT_OF_RANGE": 0,
+        "INVALID_STATE": 0,
+        "INSUFFICIENT_STAMINA": 0,
+        "MOVE_NOT_AVAILABLE": 0,
+        "NO_OPPORTUNITY": 0,
+        "TARGET_CONTEXT_CHANGED": 0,
+        "MATCH_ENDED": 0,
+        "REPLACED": 0,
+        "OTHER": 0
+      },
+      "averageWaitTicks": 0
+    },
+    "ACTION": {
+      "queued": 0,
+      "executed": 0,
+      "expired": 0,
+      "replaced": 0,
+      "cancelled": 0,
+      "waitTicks": 0,
+      "maxWaitTicks": 0,
+      "reasons": {
+        "OUT_OF_RANGE": 0,
+        "INVALID_STATE": 0,
+        "INSUFFICIENT_STAMINA": 0,
+        "MOVE_NOT_AVAILABLE": 0,
+        "NO_OPPORTUNITY": 0,
+        "TARGET_CONTEXT_CHANGED": 0,
+        "MATCH_ENDED": 0,
+        "REPLACED": 0,
+        "OTHER": 0
+      },
+      "averageWaitTicks": 0
+    },
+    "COUNTER": {
+      "queued": 0,
+      "executed": 0,
+      "expired": 0,
+      "replaced": 0,
+      "cancelled": 0,
+      "waitTicks": 0,
+      "maxWaitTicks": 0,
+      "reasons": {
+        "OUT_OF_RANGE": 0,
+        "INVALID_STATE": 0,
+        "INSUFFICIENT_STAMINA": 0,
+        "MOVE_NOT_AVAILABLE": 0,
+        "NO_OPPORTUNITY": 0,
+        "TARGET_CONTEXT_CHANGED": 0,
+        "MATCH_ENDED": 0,
+        "REPLACED": 0,
+        "OTHER": 0
+      },
+      "averageWaitTicks": 0
+    },
+    "SPECIAL": {
+      "queued": 0,
+      "executed": 0,
+      "expired": 0,
+      "replaced": 0,
+      "cancelled": 0,
+      "waitTicks": 0,
+      "maxWaitTicks": 0,
+      "reasons": {
+        "OUT_OF_RANGE": 0,
+        "INVALID_STATE": 0,
+        "INSUFFICIENT_STAMINA": 0,
+        "MOVE_NOT_AVAILABLE": 0,
+        "NO_OPPORTUNITY": 0,
+        "TARGET_CONTEXT_CHANGED": 0,
+        "MATCH_ENDED": 0,
+        "REPLACED": 0,
+        "OTHER": 0
+      },
+      "averageWaitTicks": 0
+    }
+  }
+}
