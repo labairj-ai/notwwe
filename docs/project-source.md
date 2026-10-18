@@ -185,3 +185,14 @@ The source reports a human playtest and a Notsims comparison. This import record
 Execution: character 0041 → 0042 → 0043; controls 0044 → 0045 → 0046 → 0047; converge on 0048. Additional career/match-type expansion is held until 0048 passes.
 
 Extracted shared-message text SHA-256: `bf9a11d71d6aee3b62663b03eccb9df7d3d66706a4c32a85bfc331a54c800269`.
+
+
+## Acceptance-preparation follow-up import — 2026-10-17
+
+Source: [shared follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435). Retrieved the complete public shared-message text from its structured page stream.
+
+Added proposed TODOs 0049–0051 with the original detailed policy, guardrails, acceptance/QA checklists and evidence requirements. Removed writing/conversation wrappers, normalized filenames and added source attribution. Updated 0048 to depend explicitly on all three blocking tasks. The recommended execution order is 0049 → 0051 → 0050 → 0048; 0050 must freeze the post-change deployed candidate when either implementation changes its SHA. Original new-task dependency fields were preserved.
+
+The source references the prior candidate `e53e5cc406d85e72101365d4d8a1d8aec15214eb` and its 43 tests / 36 replays / 36 pacing runs. Those are historical candidate facts, not permission to carry acceptance forward to later code. No gameplay, save/replay schema, telemetry implementation, deployment or human acceptance status changed under this import.
+
+Extracted source-message SHA-256: `de8bfcf6ef01d57ef1b33b4fd352ad2739ebea7901167497bea2c235e8110b99`.

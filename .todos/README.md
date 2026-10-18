@@ -43,6 +43,16 @@ Do not let broad roster/career work hide first-playable match-quality issues.
 - Pacing follows the control track at **0047**; both tracks converge on **0048 human acceptance**.
 - Block additional career and match-type expansion until 0048 passes. Existing implementation statuses and open human/device gates remain unchanged.
 
+## Phase 7 — Acceptance preparation
+
+[Shared follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435), imported 2026-10-17. **0049–0051 are proposed**; no gameplay changes or acceptance are claimed by this import.
+
+**0049 → 0051 → 0050 → 0048**
+
+Preserve the semantic command selected at input (Counter alone is explicitly opportunistic), collect bounded local per-control diagnostics, then freeze the exact resulting deployed candidate for human testing. Perform 0050 last whenever 0049/0051 changes candidate identity. All three block 0048; its dependency list now records those blockers. Source dependency fields remain intact, with this explicit execution-order constraint for candidate freezing.
+
+Do not carry observations across different candidate SHAs as one acceptance session. Human/physical-device gates and the existing broader-expansion hold remain unchanged.
+
 ## Full backlog
 
 | ID | Priority | Work | Depends |
@@ -94,7 +104,10 @@ Do not let broad roster/career work hide first-playable match-quality issues.
 | 0045 | Critical | [Add Deterministic Buffered Player Intent](0045-add-deterministic-buffered-player-intent.md) | 0044, 0004, 0033 |
 | 0046 | Critical | [Build Mobile-First Two-Thumb Wrestling Layout and Control Customization Foundation](0046-build-mobile-first-two-thumb-wrestling-layout-and-control-customization-foundation.md) | 0044, 0045 |
 | 0047 | Critical | [Retune Match Pacing, Reaction Windows and UI Readability for Human Control](0047-retune-match-pacing-reaction-windows-and-ui-readability-for-human-control.md) | 0044, 0045, 0046 |
-| 0048 | Critical | [Perform Character Fidelity and Mobile Control Human Acceptance](0048-perform-character-fidelity-and-mobile-control-human-acceptance.md) | 0041, 0042, 0043, 0044, 0045, 0046, 0047 |
+| 0048 | Critical | [Perform Character Fidelity and Mobile Control Human Acceptance](0048-perform-character-fidelity-and-mobile-control-human-acceptance.md) | 0041, 0042, 0043, 0044, 0045, 0046, 0047, 0049, 0050, 0051 |
+| 0049 | Critical | [Preserve Buffered Control Intent Semantics Across Context Changes](0049-preserve-buffered-control-intent-semantics-across-context-changes.md) | 0044, 0045 |
+| 0050 | Critical | [Pin Human Acceptance to Exact Candidate Identity](0050-pin-human-acceptance-to-exact-candidate-identity.md) | 0041, 0042, 0043, 0044, 0045, 0046, 0047 |
+| 0051 | High | [Add Per-Control Human Acceptance Diagnostics](0051-add-per-control-human-acceptance-diagnostics.md) | 0044, 0045, 0047, 0049 |
 
 ## Status rules
 

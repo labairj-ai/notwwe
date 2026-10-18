@@ -112,7 +112,7 @@ The detailed backlog is in `.todos/`. The high-level phases are:
 | Career | 0022–0032 | roster, career, rivalries, booking, titles, calendar, saves |
 | Quality/release | 0033–0040 | replay, audio, camera, match expansion, acceptance and deployment |
 
-**Current milestone:** [0041–0048](.todos/README.md#phase-6--character-fidelity-and-mobile-control-redesign) adds rigged humanoids, shared skeletal clips, paired contact choreography, stable two-thumb controls, buffered input and revised match pacing. Software 0041–0047 is implemented; 0048 human/device acceptance remains open. See [validation](docs/reviews/character-controls-validation.md). Further career/match-type expansion waits for 0048.
+**Current milestone:** [0041–0048](.todos/README.md#phase-6--character-fidelity-and-mobile-control-redesign) adds rigged humanoids, shared skeletal clips, paired contact choreography, stable two-thumb controls, buffered input and revised match pacing. Software 0041–0047 is implemented; 0048 human/device acceptance remains open. See [validation](docs/reviews/character-controls-validation.md). Further career/match-type expansion waits for 0048. The next proposed acceptance-preparation tasks are [0049–0051](.todos/README.md#phase-7--acceptance-preparation): preserve buffered semantics, collect per-control diagnostics, then freeze the exact candidate for 0048.
 
 **Original recommended first batch:** 0001–0006.
 **First-playable gate:** 0001–0021.  

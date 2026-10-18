@@ -4,7 +4,7 @@
 - **Status:** blocked
 - **Created:** 2026-10-17
 - **Priority:** critical
-- **Depends:** 0041, 0042, 0043, 0044, 0045, 0046, 0047
+- **Depends:** 0041, 0042, 0043, 0044, 0045, 0046, 0047, 0049, 0050, 0051
 
 ## Problem
 
@@ -99,6 +99,10 @@ Record orientation and exact device/browser.
 - [ ] Pin/reversal/grapple flow observed.
 - [ ] Device thermal/performance observations recorded.
 - [ ] Full automated regression suite remains green.
+
+## Acceptance prerequisites — follow-up review
+
+Complete 0049 semantic intent preservation and 0051 per-control diagnostics, then perform 0050 to freeze the resulting exact deployed candidate before running this review. Prior observations stay attached to their original SHA; no acceptance automatically carries to a materially changed build.
 
 ## Implementation evidence — 0.2 candidate
 

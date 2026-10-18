@@ -52,6 +52,9 @@ Validation: every entry below exists in this package; TODO Markdown references w
 - `.todos/0046-build-mobile-first-two-thumb-wrestling-layout-and-control-customization-foundation.md`
 - `.todos/0047-retune-match-pacing-reaction-windows-and-ui-readability-for-human-control.md`
 - `.todos/0048-perform-character-fidelity-and-mobile-control-human-acceptance.md`
+- `.todos/0049-preserve-buffered-control-intent-semantics-across-context-changes.md`
+- `.todos/0050-pin-human-acceptance-to-exact-candidate-identity.md`
+- `.todos/0051-add-per-control-human-acceptance-diagnostics.md`
 - `.todos/README.md`
 - `CHANGELOG.md`
 - `CLAUDE.md`
