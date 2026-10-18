@@ -88,3 +88,9 @@ Offline source-asset illustrations (Blender, not runtime screenshots): [lift](me
 ## Published candidate identity
 
 PR [#5](https://github.com/labairj-ai/notwwe/pull/5) merged after [passing CI](https://github.com/labairj-ai/notwwe/actions/runs/39066887973). Source `e53e5cc406d85e72101365d4d8a1d8aec15214eb` was built clean and activated on OptiPlex at 2026-10-17T20:30:25Z. Public HTTP/MIME/hash/source checks passed, including all three GLBs and packaged loader/skeleton modules. Previous playable release retained for rollback. See [release validation](release-validation.md). Human/device certification is still false; this activation does not close 0048.
+
+## 0049/0051 follow-up
+
+Semantic button-down buffering and bounded per-control local diagnostics are implemented. Eight new focused tests bring the suite to 51, including posture changes, both Special threshold cases, directional grapple/release identity, Counter before/after its window, immediate/buffered wait, resource/range/replacement/terminal failures, collection isolation, and frozen v3 validation/chunking. Existing exact replay/save tests cover deterministic counters. No remote telemetry or network dependency was added.
+
+Capture a report with Menu → Acceptance tools → Export control diagnostics after a completed match. Offline: `node scripts/control-report.mjs save.json --out report.json`; optional `--build-info build-info.json` attaches explicitly supplied identity (the CLI does not infer a historical save's SHA). Source identity must be confirmed against the frozen acceptance header. V2 raw pending controls are intentionally cancelled on migration; existing damage/prepared attacks remain. See save schema for limits. Human/physical acceptance 0048 remains open.

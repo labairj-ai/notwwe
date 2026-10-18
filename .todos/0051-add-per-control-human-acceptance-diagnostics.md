@@ -1,7 +1,7 @@
 # 0051 — Add Per-Control Human Acceptance Diagnostics
 
 - **ID:** 0051
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** high
 - **Depends:** 0044, 0045, 0047, 0049
@@ -166,31 +166,31 @@ It may be accessible via:
 
 ## Done when
 
-- [ ] queued is available per control.
-- [ ] executed is available per control.
-- [ ] expired is available per control.
-- [ ] replaced is available per control.
-- [ ] execution wait time is measurable.
-- [ ] expiration/failure reasons are counted.
-- [ ] completed-match diagnostic summary can be produced.
-- [ ] diagnostic collection does not alter gameplay.
-- [ ] diagnostic state remains bounded.
-- [ ] save/replay behavior is defined.
-- [ ] acceptance document explains how to capture the report.
+- [x] queued is available per control.
+- [x] executed is available per control.
+- [x] expired is available per control.
+- [x] replaced is available per control.
+- [x] execution wait time is measurable.
+- [x] expiration/failure reasons are counted.
+- [x] completed-match diagnostic summary can be produced.
+- [x] diagnostic collection does not alter gameplay.
+- [x] diagnostic state remains bounded.
+- [x] save/replay behavior is defined.
+- [x] acceptance document explains how to capture the report.
 
 ## QA requirements
 
-- [ ] Successful immediate Strike.
-- [ ] Buffered successful Strike.
-- [ ] Expired Grapple from range.
-- [ ] Expired action from stamina.
-- [ ] Replaced intent.
-- [ ] Counter with no opportunity.
-- [ ] Counter executed during telegraph.
-- [ ] Match end with pending intent.
-- [ ] Save/reload preserves or intentionally resets diagnostics according to documented policy.
-- [ ] Replay produces identical diagnostics.
-- [ ] Full test/build/check/CI passes.
+- [x] Successful immediate Strike.
+- [x] Buffered successful Strike.
+- [x] Expired Grapple from range.
+- [x] Expired action from stamina.
+- [x] Replaced intent.
+- [x] Counter with no opportunity.
+- [x] Counter executed during telegraph.
+- [x] Match end with pending intent.
+- [x] Save/reload preserves or intentionally resets diagnostics according to documented policy.
+- [x] Replay produces identical diagnostics.
+- [x] Full test/build/check/CI passes.
 
 ## Completion evidence
 
@@ -209,3 +209,7 @@ Record:
 Created from review of the 0.2 candidate to strengthen TODO 0048 human/device acceptance evidence.
 
 Imported from the [shared 0.2 acceptance follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435) on 2026-10-17. Candidate identity, validation counts and review findings above describe the source plan; this import neither implements the task nor certifies human acceptance. For 0050, freeze the actual post-0049/post-0051 deployed SHA rather than carrying forward a superseded candidate.
+
+## Implementation evidence
+
+Implemented on `codex/semantic-intents-acceptance-diagnostics`; exact merged source and CI are recorded in the frozen first-playable acceptance header after deployment. See character-controls-validation.md and architecture contracts for semantic policy, schema/limits, migration, local report capture and tests. Only Counter is opportunistic. Full validation and CI are required before merge; human/device acceptance remains 0048.

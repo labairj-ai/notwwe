@@ -1,10 +1,11 @@
+import {recordControl} from '../systems/input/diagnostics.js';
 import {TIMING} from '../content/timing.js';
-import {CONTROL_ACTIONS,validDirection,resolveControl} from '../systems/input/controls.js';
+import {CONTROL_ACTIONS,validDirection,resolveControl,captureControl,intentCommand} from '../systems/input/controls.js';
 import {wrestlerDef} from '../content/wrestlers.js';import {moveDef,grapple,moveError,prepareMove,resolvePrepared} from '../systems/combat/combat.js';import {startMove} from '../systems/movement/movement.js';import {FREE,transition} from '../systems/state-machine/states.js';import {startPin} from '../systems/pin/pin.js';import {startSubmission} from '../systems/submission/submission.js';import {changeMomentum} from '../systems/momentum/momentum.js';import {emit} from '../core/math.js';import {legalTarget} from '../systems/tag-team/teams.js';import {cancelContext,stepMatch} from './match.js';import {decide} from '../systems/opponent-ai/decision.js';
 const fail=code=>({ok:false,code,events:[]});
 function apply(m,c,events){if(m.result)return 'MATCH_ENDED';if(c.targetId!==undefined&&!Object.hasOwn(m.wrestlers,c.targetId))return 'INVALID_TARGET';const a=m.wrestlers[c.actorId],b=m.wrestlers[c.targetId]??Object.values(m.wrestlers).find(w=>w.team!==a?.team);if(!a||!b||!legalTarget(m,a,b))return 'INVALID_TARGET';
  if(c.type==='MOVE_INTENT'){if(!validDirection(c.direction))return 'INVALID_DIRECTION';a.stick={...c.direction};if(Math.hypot(a.stick.x,a.stick.z)<=.08&&['WALKING','RUNNING'].includes(a.state))transition(a,'STANDING',events);emit(events,'MOVEMENT_INTENT_CHANGED',{actorId:a.id,direction:{...a.stick}});return null;}
- if(c.type==='CONTROL_INTENT'){if(!CONTROL_ACTIONS.includes(c.action)||!validDirection(c.direction??{x:0,z:0})||!['touch','keyboard','gamepad'].includes(c.source??'touch'))return 'INVALID_INTENT';if(m.pendingIntents[a.id])m.controlStats.replaced++;m.pendingIntents[a.id]={action:c.action,direction:{...(c.direction??{x:0,z:0})},source:c.source??'touch',queuedAtTick:m.tick,expiresAtTick:m.tick+TIMING.buffers[c.action]};m.controlStats.queued++;emit(events,'CONTROL_INTENT_QUEUED',{actorId:a.id,action:c.action,expiresAtTick:m.tick+TIMING.buffers[c.action]});return null;}
+ if(c.type==='CONTROL_INTENT'){if(!CONTROL_ACTIONS.includes(c.action)||!validDirection(c.direction??{x:0,z:0})||!['touch','keyboard','gamepad'].includes(c.source??'touch'))return 'INVALID_INTENT';if(m.pendingIntents[a.id])recordControl(m,m.pendingIntents[a.id],'replaced','REPLACED');m.pendingIntents[a.id]={semantic:captureControl(m,a.id,c.action,c.direction??{x:0,z:0}),action:c.action,direction:{...(c.direction??{x:0,z:0})},source:c.source??'touch',queuedAtTick:m.tick,expiresAtTick:m.tick+TIMING.buffers[c.action]};recordControl(m,m.pendingIntents[a.id],'queued');emit(events,'CONTROL_INTENT_QUEUED',{actorId:a.id,action:c.action,expiresAtTick:m.tick+TIMING.buffers[c.action]});return null;}
  if(['MOVE','RUN'].includes(c.type)){a.movementMagnitude=1;a.stick={x:0,z:0};return startMove(m,a,c,events);}
  if(c.type==='CANCEL_CONTEXT')return cancelContext(m,a.id,events);
  if(c.type==='ATTEMPT_REVERSAL'){if(![...FREE,'GRAPPLING','PINNED','SUBMISSION_DEFENSE'].includes(a.state)||m.tick-a.lastDefenseTick<TIMING.defenseCooldown||a.stamina<7)return 'INVALID_STATE';a.counterUntil=m.tick+TIMING.counterWindow;a.defenseUntil=m.tick+TIMING.defenseDuration;a.lastDefenseTick=m.tick;a.stamina-=7;emit(events,'DEFENSE_READIED',{actorId:a.id});return null;}
@@ -20,11 +21,11 @@ export function legalCommands(m,id){const b=Object.values(m.wrestlers).find(w=>w
 
 function resolveIntents(m,events){
  for(const id of Object.keys(m.pendingIntents)){const intent=m.pendingIntents[id];
-  if(m.tick>intent.expiresAtTick){delete m.pendingIntents[id];m.controlStats.expired++;emit(events,'CONTROL_INTENT_EXPIRED',{actorId:id,action:intent.action,reason:intent.lastReason??'NO_OPPORTUNITY'});continue;}
-  const command=resolveControl(m,id,intent.action,intent.direction);
-  if(!command){intent.lastReason='NO_OPPORTUNITY';continue;}
+  if(m.tick>intent.expiresAtTick){delete m.pendingIntents[id];recordControl(m,intent,'expired',intent.lastReason??'NO_OPPORTUNITY');emit(events,'CONTROL_INTENT_EXPIRED',{actorId:id,action:intent.action,reason:intent.lastReason??'NO_OPPORTUNITY'});continue;}
+  const {command,reason}=intentCommand(m,id,intent);
+  if(!command){intent.lastReason=reason;continue;}
   const result=dispatchMatch(m,command);
-  if(result.ok){delete m.pendingIntents[id];m.controlStats.executed++;events.push(...result.events);emit(events,'CONTROL_INTENT_EXECUTED',{actorId:id,action:intent.action,tick:m.tick});}else intent.lastReason=result.code;
+  if(result.ok){delete m.pendingIntents[id];recordControl(m,intent,'executed');events.push(...result.events);emit(events,'CONTROL_INTENT_EXECUTED',{actorId:id,action:intent.action,tick:m.tick});}else intent.lastReason=result.code;
  }
 }
 export function controlOptions(m,id,direction={x:0,z:0}){

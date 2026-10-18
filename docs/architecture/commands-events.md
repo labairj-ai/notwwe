@@ -89,3 +89,9 @@ At 10 Hz, buffers last Strike/Grapple/Special 3 ticks, Action 4, Counter 2. Expi
 Each tick advances movement/resources and pin/submission state, then resolves queued player intent, then prepared attacks, then the scheduled AI decisions. Tick ordering is deterministic. AI initiative alternates at decision boundaries, avoiding permanent first-participant priority. Terminal result clears pending intents/attacks.
 
 A legal attack spends stamina once and emits `ATTACK_TELEGRAPHED` with a simulation deadline. The attacker locks into ATTACKING. At that deadline, resolve range/target state and the saved RNG for reversal/hit, apply effects, and emit resolved move events. Cancellation/miss never refunds the wind-up cost or invents a hit. Skeletal choreography consumes only resolved events; the counter UI may display the earlier telegraph. Wind-up uses ticks, never animation completion. `src/content/timing.js` owns the current tuning profile.
+
+## Semantic buffer contract (0049)
+
+Button-down captures an explicit command, target, move ID and owned context identity. Strike keeps its standing/running/ground/corner/rope move; Grapple keeps initiation or its selected directional move; Action keeps taunt/pin/submission/release; Special keeps unavailable/signature/finisher. Only Counter looks for a future opportunity. No other verb is reinterpreted. Target posture changes fail with TARGET_CONTEXT_CHANGED; an owned grapple/pin/submission release cannot affect a replacement context. All commands still pass the ordinary atomic legality dispatcher.
+
+Inclusive tick buffers and timing profile 2 are unchanged: 3/3/4/2/3 ticks. First execution is the next legal simulation tick, never the input event itself. Failed attempts wait through the deadline and expire on the following tick, counting the last stable failure reason once. AI continues to dispatch its existing commands unchanged.
