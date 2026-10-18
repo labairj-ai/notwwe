@@ -1,6 +1,6 @@
 # First playable acceptance record
 
-**Status:** human/device acceptance not performed; TODO 0048 remains blocked.  
+**Status:** human/device acceptance not performed; TODO 0048 remains blocked.
 **Template revision:** 3, frozen after TODOs 0049/0051. No human acceptance is inferred.
 
 ## Frozen candidate identity
