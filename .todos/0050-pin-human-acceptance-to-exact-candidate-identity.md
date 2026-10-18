@@ -1,7 +1,7 @@
 # 0050 — Pin Human Acceptance to Exact Candidate Identity
 
 - **ID:** 0050
-- **Status:** proposed
+- **Status:** implemented
 - **Created:** 2026-10-17
 - **Priority:** critical
 - **Depends:** 0041, 0042, 0043, 0044, 0045, 0046, 0047
@@ -81,26 +81,26 @@ If the deployed candidate changes before 0048 is complete:
 
 ## Done when
 
-- [ ] Acceptance document identifies an exact candidate SHA.
-- [ ] Test count/result is populated.
-- [ ] Replay count/result is populated.
-- [ ] Pacing count/result is populated.
-- [ ] CI result/link is recorded.
-- [ ] Deployment identity is recorded.
-- [ ] `certified:false` is explicitly recorded before human acceptance.
-- [ ] Desktop acceptance row requires SHA confirmation.
-- [ ] iPhone acceptance row requires SHA confirmation.
-- [ ] Android acceptance row requires SHA confirmation.
-- [ ] Retest policy after candidate changes is documented.
+- [x] Acceptance document identifies an exact candidate SHA.
+- [x] Test count/result is populated.
+- [x] Replay count/result is populated.
+- [x] Pacing count/result is populated.
+- [x] CI result/link is recorded.
+- [x] Deployment identity is recorded.
+- [x] `certified:false` is explicitly recorded before human acceptance.
+- [x] Desktop acceptance row requires SHA confirmation.
+- [x] iPhone acceptance row requires SHA confirmation.
+- [x] Android acceptance row requires SHA confirmation.
+- [x] Retest policy after candidate changes is documented.
 
 ## QA requirements
 
-- [ ] Candidate SHA exists on `main`.
-- [ ] Candidate SHA matches deployed build metadata.
-- [ ] Public build reports expected source SHA.
-- [ ] Public build still reports `certified:false`.
-- [ ] Test/replay/pacing counts match CI evidence.
-- [ ] Acceptance document contains no remaining ambiguous `pending` identity fields before testing begins.
+- [x] Candidate SHA exists on `main`.
+- [x] Candidate SHA matches deployed build metadata.
+- [x] Public build reports expected source SHA.
+- [x] Public build still reports `certified:false`.
+- [x] Test/replay/pacing counts match CI evidence.
+- [x] Acceptance document contains no remaining ambiguous `pending` identity fields before testing begins.
 
 ## Completion evidence
 
@@ -118,3 +118,7 @@ Record:
 Created from review of the 0.2 candidate immediately before TODO 0048 human/device acceptance.
 
 Imported from the [shared 0.2 acceptance follow-up plan](https://chatgpt.com/s/t_6ad40cea37508191834929255121f435) on 2026-10-17. Candidate identity, validation counts and review findings above describe the source plan; this import neither implements the task nor certifies human acceptance. For 0050, freeze the actual post-0049/post-0051 deployed SHA rather than carrying forward a superseded candidate.
+
+## Completion evidence
+
+Candidate implementation `dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d` exists on main and exact-SHA CI [39082644918](https://github.com/labairj-ai/notwwe/actions/runs/39082644918) passed. Clean deployment record and public metadata identify the same source; certification remains false. Frozen acceptance template revision 3 and acceptance-candidate.json contain all identity/count fields, three independent observed-SHA session columns, diagnostics instructions and retest policy. Documentation commit SHA is recorded by the containing documentation PR and follow-up commit reference. No human acceptance inferred; 0048 stays blocked.

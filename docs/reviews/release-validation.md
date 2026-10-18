@@ -50,3 +50,9 @@ The candidate was subsequently deployed at the user’s explicit request; see ac
 - Existing root and `/notsims/` returned HTTP 200 after activation.
 - Metadata remains `certified:false`. No usable CUA browser/Chrome window, physical-phone session, audible human test or subjective contact/gameplay acceptance was available. TODO 0048 remains blocked on that evidence.
 - Save v2 migration/storage and rollback limitations: `docs/architecture/save-schema.md`; rollback pointers/procedure: `deploy/HOSTING.md`.
+
+## Active semantic-control candidate (0049–0051)
+
+Supersedes the earlier published candidate: `dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d`, clean main source, [passing exact-SHA CI](https://github.com/labairj-ai/notwwe/actions/runs/39082644918). Activated 2026-10-18T00:25:39.250605+00:00. 51 tests, 36 exact replays, 36 pacing runs and source/asset/build checks pass. Certification remains false. Frozen identity, fixed release URL and required per-device SHA confirmation: [first-playable acceptance record](first-playable-acceptance.md). Previous release `e53e5cc406d85e72101365d4d8a1d8aec15214eb` is retained for rollback. Scoped `/releases/` alias exposes retained packages through the isolated NotWWE listener; no other listener or Tailscale route changes. Save v3 preserves old v1/v2 storage snapshots; earlier builds cannot import v3 exports. No human acceptance is inferred.
+
+Post-activation verifiers passed both current and fixed acceptance URLs, including GLBs, loader modules and integrity/MIME/source checks. Embedded page identity equals build-info.json; certified remains false. Existing home route returns 302 then 200, and /notsims/ returns 200. CUA inventory still exposes no browser surfaces; no browser visual or physical-device pass is claimed.

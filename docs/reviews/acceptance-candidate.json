@@ -1,0 +1,24 @@
+{
+  "templateRevision": 3,
+  "sourceSha": "dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d",
+  "implementationPR": "https://github.com/labairj-ai/notwwe/pull/8",
+  "releaseId": "releases/dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d",
+  "deploymentUrl": "https://optiplex.tailb97cdb.ts.net/notwwe/",
+  "acceptanceUrl": "https://optiplex.tailb97cdb.ts.net/notwwe/releases/dfcfe4cb8ee9df25db33e03a256b0d8aab51be7d/",
+  "activatedAt": "2026-10-18T00:25:39.250605+00:00",
+  "builtAt": "2026-10-18T00:25:01.164Z",
+  "sourceClean": true,
+  "certified": false,
+  "tests": {
+    "passed": 51,
+    "failed": 0
+  },
+  "exactReplayCases": 36,
+  "pacingRuns": 36,
+  "ci": "https://github.com/labairj-ai/notwwe/actions/runs/39082644918",
+  "ciResult": "success",
+  "humanAcceptance": "not performed",
+  "saveVersion": 3,
+  "simulationVersion": 3,
+  "timingVersion": 2
+}
